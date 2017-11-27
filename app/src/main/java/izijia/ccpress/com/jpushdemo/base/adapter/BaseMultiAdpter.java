@@ -17,7 +17,7 @@ import izijia.ccpress.com.jpushdemo.base.listener.OnLongItemClickListener;
  * Created by Admin on 2017/11/24.
  */
 
-public class BaseAdpter<D extends BaseAdapterData> extends RecyclerView.Adapter<BaseViewHolder> implements View.OnClickListener, View.OnLongClickListener {
+public class BaseMultiAdpter<D extends BaseMultiAdapterData> extends RecyclerView.Adapter<BaseViewHolder> implements View.OnClickListener, View.OnLongClickListener {
 
     public static final int VIEW_EMPTY_TYPE = 1;
     public static final int VIEW_NORMAL_TYPE = 2;
@@ -31,24 +31,24 @@ public class BaseAdpter<D extends BaseAdapterData> extends RecyclerView.Adapter<
     private OnItemClickListsner mItemClickListsner;
     private OnLongItemClickListener mLongItemClickListener;
 
-    public BaseAdpter setItemClickListsner(OnItemClickListsner itemClickListsner) {
+    public BaseMultiAdpter setItemClickListsner(OnItemClickListsner itemClickListsner) {
         mItemClickListsner = itemClickListsner;
         return this;
     }
 
-    public BaseAdpter setLongItemClickListener(OnLongItemClickListener longItemClickListener) {
+    public BaseMultiAdpter setLongItemClickListener(OnLongItemClickListener longItemClickListener) {
         mLongItemClickListener = longItemClickListener;
         return this;
     }
 
     private ViewHolderData mVHolderData;
 
-    public BaseAdpter setHolderData(ViewHolderData holderData) {
+    public BaseMultiAdpter setHolderData(ViewHolderData holderData) {
         mVHolderData = holderData;
         return this;
     }
 
-    public BaseAdpter setVHolderData(ViewHolderData VHolderData) {
+    public BaseMultiAdpter setVHolderData(ViewHolderData VHolderData) {
         mVHolderData = VHolderData;
         return this;
     }
@@ -59,7 +59,7 @@ public class BaseAdpter<D extends BaseAdapterData> extends RecyclerView.Adapter<
      * @param arraryDatas
      * @return
      */
-    public BaseAdpter setArraryDatas(ArrayList<D> arraryDatas) {
+    public BaseMultiAdpter setArraryDatas(ArrayList<D> arraryDatas) {
         this.mArraryDatas = arraryDatas;
         notifyDataSetChanged();
         return this;
@@ -71,7 +71,7 @@ public class BaseAdpter<D extends BaseAdapterData> extends RecyclerView.Adapter<
      * @param arraryDatas
      * @return
      */
-    public BaseAdpter addArraryDatas(ArrayList<D> arraryDatas) {
+    public BaseMultiAdpter addArraryDatas(ArrayList<D> arraryDatas) {
         if (mArraryDatas != null) {
             mArraryDatas.addAll(arraryDatas);
             notifyDataSetChanged();
@@ -83,7 +83,7 @@ public class BaseAdpter<D extends BaseAdapterData> extends RecyclerView.Adapter<
         return mArraryDatas;
     }
 
-    public BaseAdpter(Context mContext, int ResId) {
+    public BaseMultiAdpter(Context mContext, int ResId) {
         this.ResId = ResId;
         this.mContext = mContext;
     }

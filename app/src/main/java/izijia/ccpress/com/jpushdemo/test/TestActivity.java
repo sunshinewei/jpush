@@ -2,6 +2,8 @@ package izijia.ccpress.com.jpushdemo.test;
 
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
+import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -10,6 +12,7 @@ import izijia.ccpress.com.jpushdemo.R;
 import izijia.ccpress.com.jpushdemo.base.BaseLoadActivity;
 import izijia.ccpress.com.jpushdemo.base.adapter.BaseAdpter;
 import izijia.ccpress.com.jpushdemo.base.adapter.BaseViewHolder;
+import izijia.ccpress.com.jpushdemo.base.listener.OnItemClickListsner;
 import izijia.ccpress.com.jpushdemo.bean.TestBean;
 import izijia.ccpress.com.jpushdemo.bean.TestDemoBean;
 import izijia.ccpress.com.jpushdemo.data.TestDemoView;
@@ -35,18 +38,19 @@ public class TestActivity extends BaseLoadActivity implements TestDemoView {
     }
 
 
-
     @Override
     public void setRetryListener() {
         mTestPresenter.getData();
     }
 
+    BaseAdpter baseAdpter;
+
     @Override
     public void successView(TestDemoBean bean) {
         statusViewChange(1);
         TextView viewById = (TextView) findViewById(R.id.tv_load);
-        RecyclerView mRecy=(RecyclerView)findViewById(R.id.recy);
-        ArrayList<TestBean> mA=new ArrayList<>();
+        RecyclerView mRecy = (RecyclerView) findViewById(R.id.recy);
+        final ArrayList<TestBean> mA = new ArrayList<>();
         mA.add(new TestBean("sssss"));
         mA.add(new TestBean("sssss"));
         mA.add(new TestBean("sssss"));
@@ -54,13 +58,19 @@ public class TestActivity extends BaseLoadActivity implements TestDemoView {
         mA.add(new TestBean("sssss"));
         mA.add(new TestBean("sssss"));
 
-        mRecy.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false));
-        mRecy.setAdapter(new BaseAdpter(this,R.layout.adapter_main).setArraryDatas(mA)
-        .setVHolderData(new BaseAdpter.ViewHolderData() {
-            @Override
-            public void bindVHTheData(BaseViewHolder holder, int position) {
+        baseAdpter = new BaseAdpter(this, R.layout.adapter_main).setArraryDatas(mA)
+                .setVHolderData(new BaseAdpter.ViewHolderData() {
+                    @Override
+                    public void bindVHTheData(BaseViewHolder holder, int position) {
+                    }
+                }).setItemClickListsner(new OnItemClickListsner() {
+                    @Override
+                    public void setItemOnClickListener(View view, int position) {
+                        baseAdpter.addArraryDatas(mA);
+                    }
+                });
+        mRecy.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
+        mRecy.setAdapter(baseAdpter);
 
-            }
-        }));
     }
 }

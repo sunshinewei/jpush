@@ -22,7 +22,10 @@ public class SplashActivity extends AppCompatActivity {
         setContentView(R.layout.activity_splash);
         mVideoView = (CustomVideoView) findViewById(R.id.video);
         mTvGo = (TextView) findViewById(R.id.tv_go);
-        initView();
+//        initView();
+
+        startActivity(new Intent(SplashActivity.this, MainActivity.class));
+        finish();
 
         mTvGo.setOnClickListener(new View.OnClickListener() {
             @Override
