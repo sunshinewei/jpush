@@ -29,12 +29,12 @@ public abstract class BaseActivity extends AppCompatActivity {
 
         mRootView = (RelativeLayout) LayoutInflater.from(this).inflate(R.layout.base_activity_view, null);
 
-        mRootInflate = mRootView.findViewById(R.id.root_view);
-        mRootToolBar = mRootView.findViewById(R.id.toolbar);
+        mRootInflate = (RelativeLayout) mRootView.findViewById(R.id.root_view);
+        mRootToolBar = (LinearLayout) mRootView.findViewById(R.id.toolbar);
 
         mRootInflate.addView(getLayoutInfater());
 
-        setContentView(mRootInflate);
+        setContentView(mRootView);
 
         initView();
 

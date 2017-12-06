@@ -53,6 +53,7 @@ dependencies {
     //网络请求
     //https://github.com/jeasonlzy/okhttp-OkGo
     compile 'com.lzy.net:okgo:3.0.4'
+    compile project(':mylibrary')
 }
 repositories {
     mavenCentral()
