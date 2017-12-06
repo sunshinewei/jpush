@@ -64,6 +64,10 @@ public abstract class BaseLoadActivity extends BaseActivity implements LoadListe
             default:
         }
         mRootInflate.addView(inflate);
+
+        //添加注入初始化控件，如ButterKnife
+
+
     }
 
 

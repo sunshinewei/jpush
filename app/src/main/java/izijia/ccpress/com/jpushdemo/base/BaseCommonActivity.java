@@ -11,6 +11,9 @@ public abstract class BaseCommonActivity extends BaseActivity {
     @Override
     public View getLayoutInfater() {
         View inflate = LayoutInflater.from(this).inflate(setRootView(), null);
+
+        //添加注入初始化控件，如ButterKnife
+
         return inflate;
     }
 
