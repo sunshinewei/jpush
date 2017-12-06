@@ -10,6 +10,8 @@ import android.widget.TextView;
 import izijia.ccpress.com.jpushdemo.R;
 import izijia.ccpress.com.jpushdemo.base.listener.LoadListener;
 import izijia.ccpress.com.jpushdemo.base.listener.RetryListener;
+import izijia.ccpress.com.jpushdemo.base.loadingdialog.manager.StyleManager;
+import izijia.ccpress.com.jpushdemo.base.loadingdialog.view.LoadingDialog;
 
 /**
  * 进入页面就需要网络请求，加载数据
@@ -18,7 +20,7 @@ import izijia.ccpress.com.jpushdemo.base.listener.RetryListener;
  * @date 2017/11/22
  */
 
-public abstract class BaseLoadActivity extends BaseActivity implements LoadListener,RetryListener,BaseView{
+public abstract class BaseLoadActivity extends BaseActivity implements LoadListener, RetryListener, BaseView {
 
     public static final int LOADING_SUCCESS = 1;
     public static final int LOADING_FAIL = 2;
@@ -69,12 +71,13 @@ public abstract class BaseLoadActivity extends BaseActivity implements LoadListe
     public void loadingView() {
         statusViewChange(3);
     }
+
     public TextView mTvLoadRetry;
 
     @Override
     public void failLoad() {
         statusViewChange(2);
-        mTvLoadRetry= (TextView) findViewById(R.id.tv_loadfail);
+        mTvLoadRetry = (TextView) findViewById(R.id.tv_loadfail);
 
         mTvLoadRetry.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -82,6 +85,20 @@ public abstract class BaseLoadActivity extends BaseActivity implements LoadListe
                 setRetryListener();
             }
         });
+    }
+
+    @Override
+    public void LoadingDialog() {
+        new LoadingDialog(this)
+                .setFailedText("加载中...")
+                .show();
+    }
+
+    @Override
+    public void LoadingFailDialog() {
+        new LoadingDialog(this)
+                .setFailedText("加载失败!")
+                .show();
     }
 }
 

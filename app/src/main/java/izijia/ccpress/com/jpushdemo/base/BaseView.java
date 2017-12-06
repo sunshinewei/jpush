@@ -10,4 +10,8 @@ public interface BaseView {
 
     void failLoad();
 
+    void LoadingDialog();
+
+    void LoadingFailDialog();
+
 }
