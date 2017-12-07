@@ -16,6 +16,8 @@ import izijia.ccpress.com.mylibrary.dialog.listener.BaseListener;
 
 /**
  * Created by Admin on 2017/12/6.
+ * <p>
+ * 提示框，位于中心
  */
 
 public class BaseCenterMsgDialog extends BaseDialog {

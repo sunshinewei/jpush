@@ -13,14 +13,17 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 
 import cn.jpush.android.api.JPushInterface;
 import izijia.ccpress.com.jpushdemo.test.Test2Activity;
 import izijia.ccpress.com.jpushdemo.test.TestActivity;
+import izijia.ccpress.com.mylibrary.dialog.BaseBottomDialog;
 import izijia.ccpress.com.mylibrary.dialog.BaseCenterMsgDialog;
 import izijia.ccpress.com.mylibrary.dialog.BaseDialog;
 import izijia.ccpress.com.mylibrary.dialog.listener.BaseListener;
+import izijia.ccpress.com.mylibrary.dialog.listener.OnClickListener;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -100,7 +103,26 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 //                    .setPositiveButton("确定",null)
 //                    .create().show();
             if ("title".equals(title)) {
-                startActivity(new Intent(MainActivity.this, TestActivity.class));
+//                startActivity(new Intent(MainActivity.this, TestActivity.class));
+                String[] mString = {"1233", "1233", "1233", "1233", "1233"};
+
+                ArrayList<String> mArray = new ArrayList<>();
+                mArray.add("sdfdfdf");
+                mArray.add("sdfdfdf");
+                mArray.add("sdfdfdf");
+                mArray.add("sdfdfdf");
+                mArray.add("sdfdfdf");
+                new BaseBottomDialog()
+                        .setmArrays(mArray)
+                        .setOnClickListener(new OnClickListener() {
+                            @Override
+                            public void setOnClickListner(View view, int position) {
+                                Toast.makeText(MainActivity.this, "点击了" + position, Toast.LENGTH_LONG).show();
+                            }
+                        })
+                        .show(getFragmentManager(), "sss");
+
+
             } else {
                 BaseCenterMsgDialog.newInstance()
                         .setTitle("这是标题")
