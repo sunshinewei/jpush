@@ -1,7 +1,7 @@
 package izijia.ccpress.com.jpushdemo.bean;
 
-import izijia.ccpress.com.jpushdemo.base.adapter.BaseAdapterData;
-import izijia.ccpress.com.jpushdemo.base.adapter.BaseMultiAdapterData;
+
+import izijia.ccpress.com.mylibrary.base.adapter.BaseMultiAdapterData;
 
 /**
  * Created by Admin on 2017/11/24.

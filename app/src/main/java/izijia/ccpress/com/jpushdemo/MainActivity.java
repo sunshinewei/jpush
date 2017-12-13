@@ -65,7 +65,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.color://调用JS中的有参数方法
 //                webView.loadUrl("javascript:setColor('#00f','代码的触发事件')");
-                startActivity(new Intent(this, Test2Activity.class));
+                startActivity(new Intent(this, TestActivity.class));
                 break;
         }
     }

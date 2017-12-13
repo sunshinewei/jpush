@@ -2,21 +2,22 @@ package izijia.ccpress.com.jpushdemo.test;
 
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
-import android.widget.BaseAdapter;
+
 import android.widget.TextView;
 
 import java.util.ArrayList;
 
 import izijia.ccpress.com.jpushdemo.R;
-import izijia.ccpress.com.jpushdemo.base.BaseLoadActivity;
-import izijia.ccpress.com.jpushdemo.base.adapter.BaseAdpter;
-import izijia.ccpress.com.jpushdemo.base.adapter.BaseViewHolder;
-import izijia.ccpress.com.jpushdemo.base.listener.OnItemClickListsner;
 import izijia.ccpress.com.jpushdemo.bean.TestBean;
 import izijia.ccpress.com.jpushdemo.bean.TestDemoBean;
 import izijia.ccpress.com.jpushdemo.data.TestDemoView;
 import izijia.ccpress.com.jpushdemo.data.TestPresenter;
+import izijia.ccpress.com.mylibrary.base.BaseLoadActivity;
+import izijia.ccpress.com.mylibrary.base.adapter.BaseAdpter;
+import izijia.ccpress.com.mylibrary.base.adapter.BaseViewHolder;
+import izijia.ccpress.com.mylibrary.base.listener.OnItemClickListsner;
 
 public class TestActivity extends BaseLoadActivity implements TestDemoView {
 
@@ -35,6 +36,7 @@ public class TestActivity extends BaseLoadActivity implements TestDemoView {
     public void initData() {
         mTestPresenter = new TestPresenter(this);
         mTestPresenter.getData();
+        Log.e("sdfs","sdfsd");
     }
 
 

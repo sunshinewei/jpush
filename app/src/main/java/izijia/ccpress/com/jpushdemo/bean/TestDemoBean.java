@@ -17,7 +17,7 @@ public class TestDemoBean {
 
     public int code;
     public String msg;
-    public DataBean data;
+    public String data;
 
     @Override
     public String toString() {
@@ -69,22 +69,6 @@ public class TestDemoBean {
         public List<?> facilities;
         public List<?> aqi;
 
-        public static class ShareBean {
-            /**
-             * name : 12
-             * url : www.baidu.com
-             * info : 详细信息
-             * logo : s.east-profit.com/uploads/20170921/122537fcf2b9376afa93d148708adac6.jpg
-             */
-
-            public String name;
-            public String url;
-            public String info;
-            public String logo;
-
-
-        }
-
         @Override
         public String toString() {
             return "DataBean{" +
@@ -107,6 +91,22 @@ public class TestDemoBean {
                     ", facilities=" + facilities +
                     ", aqi=" + aqi +
                     '}';
+        }
+
+        public static class ShareBean {
+            /**
+             * name : 12
+             * url : www.baidu.com
+             * info : 详细信息
+             * logo : s.east-profit.com/uploads/20170921/122537fcf2b9376afa93d148708adac6.jpg
+             */
+
+            public String name;
+            public String url;
+            public String info;
+            public String logo;
+
+
         }
 
         public int getId() {

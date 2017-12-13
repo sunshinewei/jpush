@@ -14,3 +14,16 @@ BaseCenterMsgDialog.newInstance()
                         .show(MainActivity.this)
                         .setCancelable(false);//点击空白区域，控制Dialog ,true:消失，false:不消失
 </code></pre>
+
+#### BaseBottomDialog的使用
+<pre><code>
+ new BaseBottomDialog()
+     .setmArrays(mArray)
+     .setOnClickListener(new OnClickListener() {
+            @Override
+            public void setOnClickListner(View view, int position) {
+                   Toast.makeText(MainActivity.this, "点击了" + position, Toast.LENGTH_LONG).show();
+            }
+     })
+     .show(getFragmentManager(), "sss");
+</code></pre>
