@@ -21,6 +21,7 @@ public class TestPresenter {
                 .setDataType(TestDemoBean.class)
                 .setUrl("http://s.east-profit.com/api.php/space/detail?latitude=null&longitude=null&id=5")
                 .setBaseView(mTestDemoView)
+                .setIsLoad(false)
                 .setOnSuccessListener(new OnSuccessListener<TestDemoBean>() {
                     @Override
                     public void setSuccessInfo(TestDemoBean datas) {

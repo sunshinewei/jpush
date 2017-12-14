@@ -13,4 +13,6 @@ public interface IBaseView {
     void LoadingDialog();
 
     void LoadingFailDialog(String msg);
+
+    void loadfinishView();
 }

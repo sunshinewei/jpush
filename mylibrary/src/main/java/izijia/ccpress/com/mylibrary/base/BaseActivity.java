@@ -1,12 +1,16 @@
 package izijia.ccpress.com.mylibrary.base;
 
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.Toast;
 
 import izijia.ccpress.com.mylibrary.R;
 import izijia.ccpress.com.mylibrary.base.loadingdialog.view.LoadingDialog;
@@ -51,6 +55,12 @@ public abstract class BaseActivity extends AppCompatActivity implements IBaseVie
 
     public abstract void initData();
 
+    /**
+     * 吐司
+     */
+    public void toastLong(String msg) {
+        Toast.makeText(this, msg, Toast.LENGTH_LONG).show();
+    }
 
     @Override
     public void loadingView() {
@@ -62,21 +72,30 @@ public abstract class BaseActivity extends AppCompatActivity implements IBaseVie
 
     }
 
+    LoadingDialog mLoadingDialog;
+
     @Override
     public void LoadingDialog() {
-        LoadingDialog mLoadingDialog=new LoadingDialog(this);
+        mLoadingDialog = new LoadingDialog(this);
         mLoadingDialog
+                .setShowTime(1)
                 .setLoadingText("加载中...")
                 .show();
     }
 
     @Override
-    public void LoadingFailDialog(String msg) {
-        LoadingDialog mLoadingDialog=new LoadingDialog(this);
-            mLoadingDialog
-                    .setLoadingText("加载中...")
-                    .setFailedText(msg)
-                    .show();
-            mLoadingDialog.loadFailed();
+    public void loadfinishView() {
+        if (mLoadingDialog != null) {
+            mLoadingDialog.loadSuccess();
+        }
     }
+
+
+    @Override
+    public void LoadingFailDialog(String msg) {
+        if (mLoadingDialog != null) {
+            mLoadingDialog.loadFailed();
+        }
+    }
+
 }

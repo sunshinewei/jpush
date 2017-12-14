@@ -61,7 +61,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.red:  //调用JS中的无参数方法
-                webView.loadUrl("javascript:setRed()");
+//                webView.loadUrl("javascript:setRed()");
+                startActivity(new Intent(this, Test2Activity.class));
                 break;
             case R.id.color://调用JS中的有参数方法
 //                webView.loadUrl("javascript:setColor('#00f','代码的触发事件')");

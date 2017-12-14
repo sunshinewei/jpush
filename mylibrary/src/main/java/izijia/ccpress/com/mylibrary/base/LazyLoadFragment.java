@@ -124,17 +124,34 @@ public abstract class LazyLoadFragment extends Fragment implements IBaseView {
     protected void stopLoad() {
     }
 
+    /**
+     * 吐司
+     */
+    public void toastLong(String msg) {
+        Toast.makeText(getContext(), msg, Toast.LENGTH_LONG).show();
+    }
+
+
+    LoadingDialog mLoadingDialog;
     @Override
     public void LoadingDialog() {
-        new LoadingDialog(getContext())
-                .setFailedText("加载中...")
+        mLoadingDialog = new LoadingDialog(getContext());
+        mLoadingDialog
+                .setShowTime(1)
+                .setLoadingText("加载中...")
                 .show();
     }
 
     @Override
+    public void loadfinishView() {
+        if (mLoadingDialog != null) {
+            mLoadingDialog.loadSuccess();
+        }
+    }
+    @Override
     public void LoadingFailDialog(String msg) {
-        new LoadingDialog(getContext())
-                .setFailedText("加载失败!")
-                .show();
+        if (mLoadingDialog != null) {
+            mLoadingDialog.loadFailed();
+        }
     }
 }

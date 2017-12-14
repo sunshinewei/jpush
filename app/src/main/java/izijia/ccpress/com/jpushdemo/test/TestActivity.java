@@ -36,7 +36,6 @@ public class TestActivity extends BaseLoadActivity implements TestDemoView {
     public void initData() {
         mTestPresenter = new TestPresenter(this);
         mTestPresenter.getData();
-        Log.e("sdfs","sdfsd");
     }
 
 
@@ -75,4 +74,6 @@ public class TestActivity extends BaseLoadActivity implements TestDemoView {
         mRecy.setAdapter(baseAdpter);
 
     }
+
+
 }

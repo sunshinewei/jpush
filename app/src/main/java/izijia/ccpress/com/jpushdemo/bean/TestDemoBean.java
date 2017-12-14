@@ -17,7 +17,7 @@ public class TestDemoBean {
 
     public int code;
     public String msg;
-    public String data;
+    public DataBean data;
 
     @Override
     public String toString() {
@@ -29,6 +29,30 @@ public class TestDemoBean {
     }
 
     public static class DataBean {
+        @Override
+        public String toString() {
+            return "DataBean{" +
+                    "id=" + id +
+                    ", spaceName='" + spaceName + '\'' +
+                    ", spaceImage='" + spaceImage + '\'' +
+                    ", spaceGalley='" + spaceGalley + '\'' +
+                    ", spaceMoney='" + spaceMoney + '\'' +
+                    ", spaceLoadNumber=" + spaceLoadNumber +
+                    ", spaceSquareMetre=" + spaceSquareMetre +
+                    ", spaceAreaPath='" + spaceAreaPath + '\'' +
+                    ", spaceCover='" + spaceCover + '\'' +
+                    ", spaceAttention='" + spaceAttention + '\'' +
+                    ", spaceStatus=" + spaceStatus +
+                    ", spaceDesc='" + spaceDesc + '\'' +
+                    ", share=" + share +
+                    ", costStatement='" + costStatement + '\'' +
+                    ", howFar=" + howFar +
+                    ", purpose=" + purpose +
+                    ", facilities=" + facilities +
+                    ", aqi=" + aqi +
+                    '}';
+        }
+
         /**
          * id : 5
          * spaceName : 12
@@ -68,30 +92,6 @@ public class TestDemoBean {
         public List<?> purpose;
         public List<?> facilities;
         public List<?> aqi;
-
-        @Override
-        public String toString() {
-            return "DataBean{" +
-                    "id=" + id +
-                    ", spaceName='" + spaceName + '\'' +
-                    ", spaceImage='" + spaceImage + '\'' +
-                    ", spaceGalley='" + spaceGalley + '\'' +
-                    ", spaceMoney='" + spaceMoney + '\'' +
-                    ", spaceLoadNumber=" + spaceLoadNumber +
-                    ", spaceSquareMetre=" + spaceSquareMetre +
-                    ", spaceAreaPath='" + spaceAreaPath + '\'' +
-                    ", spaceCover='" + spaceCover + '\'' +
-                    ", spaceAttention='" + spaceAttention + '\'' +
-                    ", spaceStatus=" + spaceStatus +
-                    ", spaceDesc='" + spaceDesc + '\'' +
-                    ", share=" + share +
-                    ", costStatement='" + costStatement + '\'' +
-                    ", howFar=" + howFar +
-                    ", purpose=" + purpose +
-                    ", facilities=" + facilities +
-                    ", aqi=" + aqi +
-                    '}';
-        }
 
         public static class ShareBean {
             /**
