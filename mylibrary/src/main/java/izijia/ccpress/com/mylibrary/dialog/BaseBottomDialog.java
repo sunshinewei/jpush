@@ -1,5 +1,6 @@
 package izijia.ccpress.com.mylibrary.dialog;
 
+import android.app.Activity;
 import android.app.Dialog;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -73,6 +74,13 @@ public class BaseBottomDialog extends BaseDialog {
         window.setAttributes(wlp);
     }
 
+    View viewGroup;
+
+    public BaseBottomDialog setViewGroup(View viewGroup) {
+        this.viewGroup = viewGroup;
+        return this;
+    }
+
     @Override
     protected void initView(ViewGroup mRootView) {
         mTitle = (TextView) mRootView.findViewById(R.id.tv_title);
@@ -108,6 +116,17 @@ public class BaseBottomDialog extends BaseDialog {
             }
         });
 
+    }
+
+    /**
+     * Dialog 的显示
+     *
+     * @param mAct
+     * @return
+     */
+    public BaseBottomDialog show(Activity mAct) {
+        show(mAct.getFragmentManager(), this.toString());
+        return this;
     }
 
 

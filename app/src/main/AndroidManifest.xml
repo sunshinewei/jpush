@@ -16,16 +16,21 @@
         android:theme="@style/AppTheme">
         <activity android:name=".MainActivity" />
 
-        <activity
-            android:name=".SplashActivity"
-            android:theme="@style/AppTheme.Full">
+        <!--<activity-->
+            <!--android:name=".SplashActivity"-->
+            <!--android:theme="@style/AppTheme.Full">-->
+            <!--<intent-filter>-->
+                <!--<action android:name="android.intent.action.MAIN" />-->
+                <!--<category android:name="android.intent.category.LAUNCHER" />-->
+            <!--</intent-filter>-->
+        <!--</activity>-->
+
+        <activity android:name=".test.ExampleActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name=".TwoActivity" />
         <activity android:name=".test.Test2Activity" />
         <activity android:name=".test.TestActivity" />
 

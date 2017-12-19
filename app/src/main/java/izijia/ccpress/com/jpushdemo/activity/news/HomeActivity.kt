@@ -26,9 +26,6 @@ class HomeActivity : BaseLoadActivity(), HomePresenter.IHomeView {
         return R.layout.activity_home
     }
 
-    override fun initView() {
-    }
-
     override fun initData() {
         HomePresenter(this)
                 .setTitleTab()
