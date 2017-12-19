@@ -10,13 +10,14 @@
         android:id="@+id/tv_load"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="fdgdfg"
-        android:gravity="center"/>
+        android:gravity="center"
+        android:text="fdgdfg" />
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recy"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_below="@id/tv_load">
 
     </android.support.v7.widget.RecyclerView>
 </RelativeLayout>

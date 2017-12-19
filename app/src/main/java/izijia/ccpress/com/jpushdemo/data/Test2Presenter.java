@@ -19,7 +19,7 @@ public class Test2Presenter {
     public void getData() {
 
         BaseGoSpace.helper()
-                .setDataType(TestDemoBean.class)
+//                .setDataType(TestDemoBean.class)
                 .setUrl("http://s.east-profit.com/api.php/space/detail")
                 .setParam("id", "5", "latitude", null, "longitude", null)
                 .setBaseView(mTestDemoView)

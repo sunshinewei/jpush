@@ -2,11 +2,14 @@ package izijia.ccpress.com.jpushdemo;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.os.Build;
+import android.support.annotation.RequiresApi;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.webkit.JavascriptInterface;
+import android.webkit.ValueCallback;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.widget.Button;
@@ -14,14 +17,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 
-import cn.jpush.android.api.JPushInterface;
+import izijia.ccpress.com.jpushdemo.activity.news.HomeActivity;
 import izijia.ccpress.com.jpushdemo.test.Test2Activity;
-import izijia.ccpress.com.jpushdemo.test.TestActivity;
 import izijia.ccpress.com.mylibrary.dialog.BaseBottomDialog;
 import izijia.ccpress.com.mylibrary.dialog.BaseCenterMsgDialog;
-import izijia.ccpress.com.mylibrary.dialog.BaseDialog;
 import izijia.ccpress.com.mylibrary.dialog.listener.BaseListener;
 import izijia.ccpress.com.mylibrary.dialog.listener.OnClickListener;
 
@@ -41,7 +41,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         colorButton.setOnClickListener(this);
         initWebView();
         webView.loadUrl("file:///android_asset/test.html"); //加载assets文件中的H5页面
-
     }
 
 
@@ -66,7 +65,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.color://调用JS中的有参数方法
 //                webView.loadUrl("javascript:setColor('#00f','代码的触发事件')");
-                startActivity(new Intent(this, TestActivity.class));
+//                startActivity(new Intent(this, TestActivity.class));
+                startActivity(new Intent(this, HomeActivity.class));
                 break;
         }
     }
@@ -125,17 +125,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
             } else {
-                BaseCenterMsgDialog.newInstance()
-                        .setTitle("这是标题")
-                        .setContent("输入内容")
-                        .setBaseListener(new BaseListener() {
-                            @Override
-                            public void setOnClickListner(View view) {
-                                Toast.makeText(MainActivity.this, "点击了确定", Toast.LENGTH_LONG).show();
-                            }
-                        })
-                        .show(MainActivity.this)
-                        .setCancelable(true);
+//                BaseCenterMsgDialog.newInstance()
+//                        .setTitle("这是标题")
+//                        .setContent("输入内容")
+//                        .setBaseListener(new BaseListener() {
+//                            @Override
+//                            public void setOnClickListner(View view) {
+//                                Toast.makeText(MainActivity.this, "点击了确定", Toast.LENGTH_LONG).show();
+//                            }
+//                        })
+//                        .show(MainActivity.this)
+//                        .setCancelable(true);
+                startActivity(new Intent(MainActivity.this, HomeActivity.class));
+
             }
         }
     }

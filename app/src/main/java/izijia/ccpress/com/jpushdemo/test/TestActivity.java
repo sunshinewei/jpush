@@ -18,6 +18,7 @@ import izijia.ccpress.com.mylibrary.base.BaseLoadActivity;
 import izijia.ccpress.com.mylibrary.base.adapter.BaseAdpter;
 import izijia.ccpress.com.mylibrary.base.adapter.BaseViewHolder;
 import izijia.ccpress.com.mylibrary.base.listener.OnItemClickListsner;
+import izijia.ccpress.com.mylibrary.dialog.listener.BaseViewBottomPopupWindow;
 
 public class TestActivity extends BaseLoadActivity implements TestDemoView {
 
@@ -36,6 +37,7 @@ public class TestActivity extends BaseLoadActivity implements TestDemoView {
     public void initData() {
         mTestPresenter = new TestPresenter(this);
         mTestPresenter.getData();
+        Log.e("sdfs", "sdfsd");
     }
 
 
@@ -49,7 +51,7 @@ public class TestActivity extends BaseLoadActivity implements TestDemoView {
     @Override
     public void successView(TestDemoBean bean) {
         statusViewChange(1);
-        TextView viewById = (TextView) findViewById(R.id.tv_load);
+        final TextView viewById = (TextView) findViewById(R.id.tv_load);
         RecyclerView mRecy = (RecyclerView) findViewById(R.id.recy);
         final ArrayList<TestBean> mA = new ArrayList<>();
         mA.add(new TestBean("sssss"));
@@ -73,7 +75,13 @@ public class TestActivity extends BaseLoadActivity implements TestDemoView {
         mRecy.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
         mRecy.setAdapter(baseAdpter);
 
+        viewById.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                new BaseViewBottomPopupWindow(TestActivity.this)
+                        .showAsDropDown(viewById);
+            }
+        });
+
     }
-
-
 }

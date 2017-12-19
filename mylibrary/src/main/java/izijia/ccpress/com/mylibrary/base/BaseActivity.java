@@ -41,7 +41,6 @@ public abstract class BaseActivity extends AppCompatActivity implements IBaseVie
 
         setContentView(mRootView);
 
-        initView();
 
         initData();
     }
@@ -51,7 +50,12 @@ public abstract class BaseActivity extends AppCompatActivity implements IBaseVie
 
     public abstract int setRootView();
 
-    public abstract void initView();
+    /**
+     * 此方法存在bug,当进行网络加载是不可用
+     */
+    public void initView() {
+
+    }
 
     public abstract void initData();
 
