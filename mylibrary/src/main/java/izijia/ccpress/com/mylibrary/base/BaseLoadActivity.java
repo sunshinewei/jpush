@@ -27,7 +27,7 @@ public abstract class BaseLoadActivity extends BaseActivity implements LoadListe
 
     @Override
     public View getLayoutInfater() {
-        ViewGroup inflate = (ViewGroup) LayoutInflater.from(this).inflate(LoadingResId(), null);
+        ViewGroup inflate = (ViewGroup) LayoutInflater.from(this).inflate(LoadingResId(), mRootInflate,false);
         return inflate;
     }
 
@@ -52,13 +52,13 @@ public abstract class BaseLoadActivity extends BaseActivity implements LoadListe
         mRootInflate.removeAllViews();
         switch (status) {
             case LOADING_SUCCESS:
-                inflate = (ViewGroup) LayoutInflater.from(this).inflate(setRootView(), null);
+                inflate = (ViewGroup) LayoutInflater.from(this).inflate(setRootView(), mRootInflate,false);
                 break;
             case LOADING_FAIL:
-                inflate = (ViewGroup) LayoutInflater.from(this).inflate(LoadFailResId(), null);
+                inflate = (ViewGroup) LayoutInflater.from(this).inflate(LoadFailResId(), mRootInflate,false);
                 break;
             case LOADING_LOADING:
-                inflate = (ViewGroup) LayoutInflater.from(this).inflate(LoadingResId(), null);
+                inflate = (ViewGroup) LayoutInflater.from(this).inflate(LoadingResId(), mRootInflate,false);
                 break;
             default:
         }

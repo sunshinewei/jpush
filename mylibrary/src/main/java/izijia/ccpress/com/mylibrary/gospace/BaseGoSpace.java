@@ -205,7 +205,6 @@ public class BaseGoSpace<T> {
             if (!isLoad) {
                 mBaseView.failLoad();
                 Log.e("数据解析","数据解析失败!");
-
             } else {
                 mBaseView.LoadingFailDialog("数据解析失败!");
             }

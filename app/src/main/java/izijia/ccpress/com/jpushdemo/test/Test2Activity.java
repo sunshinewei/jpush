@@ -1,13 +1,16 @@
 package izijia.ccpress.com.jpushdemo.test;
 
+import android.view.ViewGroup;
 import android.widget.TextView;
 
+import izijia.ccpress.com.jpushdemo.MainActivity;
 import izijia.ccpress.com.jpushdemo.R;
 import izijia.ccpress.com.jpushdemo.bean.TestDemoBean;
 import izijia.ccpress.com.jpushdemo.data.Test2Presenter;
 import izijia.ccpress.com.jpushdemo.data.TestDemoView;
 import izijia.ccpress.com.jpushdemo.data.TestPresenter;
 import izijia.ccpress.com.mylibrary.base.BaseCommonActivity;
+import izijia.ccpress.com.mylibrary.utils.OSUtils;
 
 
 /**
@@ -39,6 +42,9 @@ public class Test2Activity extends BaseCommonActivity implements TestDemoView {
     @Override
     public void successView(TestDemoBean bean) {
         tvLoad = (TextView) findViewById(R.id.tv_load);
-        tvLoad.setText(bean.toString());
+        tvLoad.setText("OSUtils" + OSUtils.getDefaultDisplay(Test2Activity.this)
+                .getHeight() + "  :  " + OSUtils.getDefaultDisplay(Test2Activity.this)
+                .getWidth()+"  :  "+OSUtils.getDeviceName()+"  :   "+OSUtils.getDeviceProduct()+"  :   "+OSUtils.getSystemVersion());
+
     }
 }

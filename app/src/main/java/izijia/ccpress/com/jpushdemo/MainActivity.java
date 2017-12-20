@@ -24,6 +24,7 @@ import izijia.ccpress.com.mylibrary.dialog.BaseBottomDialog;
 import izijia.ccpress.com.mylibrary.dialog.BaseCenterMsgDialog;
 import izijia.ccpress.com.mylibrary.dialog.listener.BaseListener;
 import izijia.ccpress.com.mylibrary.dialog.listener.OnClickListener;
+import izijia.ccpress.com.mylibrary.utils.OSUtils;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -121,22 +122,26 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                                 Toast.makeText(MainActivity.this, "点击了" + position, Toast.LENGTH_LONG).show();
                             }
                         })
-                        .show(getFragmentManager(), "sss");
+                        .show(getSupportFragmentManager(), "sss");
 
 
             } else {
-//                BaseCenterMsgDialog.newInstance()
-//                        .setTitle("这是标题")
-//                        .setContent("输入内容")
-//                        .setBaseListener(new BaseListener() {
-//                            @Override
-//                            public void setOnClickListner(View view) {
-//                                Toast.makeText(MainActivity.this, "点击了确定", Toast.LENGTH_LONG).show();
-//                            }
-//                        })
-//                        .show(MainActivity.this)
-//                        .setCancelable(true);
-                startActivity(new Intent(MainActivity.this, HomeActivity.class));
+
+                BaseCenterMsgDialog.newInstance()
+                        .setTitle("这是标题")
+                        .setContent("OSUtils" + OSUtils.getDefaultDisplay(MainActivity.this)
+                                .getHeight() + "  :  " + OSUtils.getDefaultDisplay(MainActivity.this)
+                                .getWidth()+"  :  "+OSUtils.getDeviceName()+"  :   "+OSUtils.getDeviceProduct())
+                        .setBaseListener(new BaseListener() {
+                            @Override
+                            public void setOnClickListner(View view) {
+                                Toast.makeText(MainActivity.this, "点击了确定", Toast.LENGTH_LONG).show();
+                            }
+                        })
+                        .show(MainActivity.this)
+                        .setCancelable(false);
+
+//                startActivity(new Intent(MainActivity.this, HomeActivity.class));
 
             }
         }

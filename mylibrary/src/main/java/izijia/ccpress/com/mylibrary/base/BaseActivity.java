@@ -8,9 +8,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.Window;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import com.google.gson.Gson;
 
 import izijia.ccpress.com.mylibrary.R;
 import izijia.ccpress.com.mylibrary.base.loadingdialog.view.LoadingDialog;
@@ -37,12 +41,51 @@ public abstract class BaseActivity extends AppCompatActivity implements IBaseVie
         mRootInflate = (RelativeLayout) mRootView.findViewById(R.id.root_view);
         mRootToolBar = (LinearLayout) mRootView.findViewById(R.id.toolbar);
 
+        RelativeLayout inflate = (RelativeLayout) LayoutInflater.from(this).inflate(R.layout.base_toolbar, mRootToolBar, false);
+
+        mRootToolBar.addView(inflate);
         mRootInflate.addView(getLayoutInfater());
 
         setContentView(mRootView);
-
-
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().hide();
+        }
         initData();
+        initToolBar(inflate);
+    }
+
+    /**
+     * 初始化ToolBar
+     *
+     * @param inflate
+     */
+    public TextView tvBack;
+    public TextView tvTitle;
+    public LinearLayout lnRight;
+
+    private void initToolBar(RelativeLayout inflate) {
+        tvBack = (TextView) inflate.findViewById(R.id.tv_back);
+        tvTitle = (TextView) inflate.findViewById(R.id.tv_title);
+        lnRight = (LinearLayout) inflate.findViewById(R.id.ln_right);
+        goBack();
+        addToolBarRight();
+    }
+
+    public void goBack() {
+        tvBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+    }
+
+    public void addToolBarRight() {
+        TextView textView = new TextView(this);
+
+        textView.setText("确定");
+
+        lnRight.addView(textView);
     }
 
 

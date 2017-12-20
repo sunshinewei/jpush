@@ -125,7 +125,7 @@ public class BaseBottomDialog extends BaseDialog {
      * @return
      */
     public BaseBottomDialog show(Activity mAct) {
-        show(mAct.getFragmentManager(), this.toString());
+        show(getFragmentManager(), this.toString());
         return this;
     }
 

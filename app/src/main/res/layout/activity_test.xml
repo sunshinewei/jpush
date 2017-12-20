@@ -9,15 +9,28 @@
     <TextView
         android:id="@+id/tv_load"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:gravity="center"
-        android:text="fdgdfg" />
+        android:text="fdgdfg"
+
+        />
+
+    <ImageView
+        android:id="@+id/img_load"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:text="fdgdfg"
+
+        />
+
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recy"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/tv_load">
+        android:layout_below="@id/tv_load"
+        android:visibility="gone">
 
     </android.support.v7.widget.RecyclerView>
 </RelativeLayout>

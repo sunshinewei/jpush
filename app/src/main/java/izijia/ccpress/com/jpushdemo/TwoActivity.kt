@@ -12,6 +12,7 @@ class TwoActivity : BaseLoadActivity() {
 
     override fun setRootView(): Int {
         return R.layout.activity_test
+
     }
 
     override fun initView() {

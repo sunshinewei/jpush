@@ -2,6 +2,7 @@ package izijia.ccpress.com.mylibrary.dialog;
 
 import android.app.Activity;
 import android.content.Context;
+import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.view.Gravity;
@@ -124,10 +125,10 @@ public class BaseCenterMsgDialog extends BaseDialog {
     }
 
     /**
-     * @param mAct
+     *
      */
-    public BaseCenterMsgDialog show(Activity mAct) {
-        show(mAct.getFragmentManager(), "center");
+    public BaseCenterMsgDialog show(AppCompatActivity activity) {
+        show(activity.getSupportFragmentManager(), "center");
         return this;
     }
 
