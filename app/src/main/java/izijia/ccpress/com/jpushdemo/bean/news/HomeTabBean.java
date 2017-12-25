@@ -25,16 +25,12 @@ public class HomeTabBean{
 
 
             public static class GroupBean {
-
                 public String video_id;
-
                 public String mp4_url;
                 public String text;
                 public int category_activity_start_time;
-
                 public int digg_count;
                 public double duration;
-
                 public int create_time;
                 public String share_url;
                 public int go_detail_count;

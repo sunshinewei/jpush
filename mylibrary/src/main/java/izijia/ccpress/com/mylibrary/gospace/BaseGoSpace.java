@@ -128,6 +128,7 @@ public class BaseGoSpace<T> {
                             mBaseView.LoadingDialog();
                         }
                     }
+
                     @Override
                     public void onSuccess(Response<String> response) {
                         goAnalysisData(response.body());
@@ -136,6 +137,7 @@ public class BaseGoSpace<T> {
                     @Override
                     public void onError(Response<String> response) {
                         super.onError(response);
+                        Log.e("网络请求", "网络请求失败!");
                         if (!isLoad) {
                             mBaseView.failLoad();
                         } else {
@@ -168,19 +170,23 @@ public class BaseGoSpace<T> {
                             mBaseView.LoadingDialog();
                         }
                     }
+
                     @Override
                     public void onSuccess(Response<String> response) {
                         goAnalysisData(response.body());
                     }
+
                     @Override
                     public void onError(Response<String> response) {
                         super.onError(response);
+                        Log.e("网络请求", "网络请求失败!");
                         if (!isLoad) {
                             mBaseView.failLoad();
                         } else {
                             mBaseView.LoadingFailDialog("请求异常!");
                         }
                     }
+
                     @Override
                     public void onFinish() {
                         super.onFinish();
@@ -202,9 +208,9 @@ public class BaseGoSpace<T> {
             T data = (T) gson.fromJson(datas, dataType);
             mOnSuccessListener.setSuccessInfo(data);
         } catch (Exception e) {
+            Log.e("数据解析", "数据解析失败!");
             if (!isLoad) {
                 mBaseView.failLoad();
-                Log.e("数据解析","数据解析失败!");
             } else {
                 mBaseView.LoadingFailDialog("数据解析失败!");
             }

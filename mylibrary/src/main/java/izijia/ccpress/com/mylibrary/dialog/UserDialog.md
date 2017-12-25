@@ -28,6 +28,19 @@ BaseCenterMsgDialog.newInstance()
                        .show(getFragmentManager(), "sss");
 </code></pre>
 
+#### ViewBottomPopupWindow的使用(在某个View下显示)
+<pre><code>
+ new ViewBottomPopupWindow(Test2Activity.this)
+                        .setmArrays(mArray)
+                        .setOnClickListener(new OnClickListener() {
+                            @Override
+                            public void setOnClickListner(View view, int position) {
+                                toastLong("sdfsdgfsdfg");
+                            }
+                        })
+                        .show(tvLoad);
+</code></pre>
+
 
 
 #### 使用DialogFactory进行调用

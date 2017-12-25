@@ -18,7 +18,6 @@ import izijia.ccpress.com.mylibrary.base.BaseLoadActivity;
 import izijia.ccpress.com.mylibrary.base.adapter.BaseAdpter;
 import izijia.ccpress.com.mylibrary.base.adapter.BaseViewHolder;
 import izijia.ccpress.com.mylibrary.base.listener.OnItemClickListsner;
-import izijia.ccpress.com.mylibrary.dialog.listener.BaseViewBottomPopupWindow;
 
 public class TestActivity extends BaseLoadActivity implements TestDemoView {
 
@@ -75,13 +74,7 @@ public class TestActivity extends BaseLoadActivity implements TestDemoView {
         mRecy.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
         mRecy.setAdapter(baseAdpter);
 
-        viewById.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                new BaseViewBottomPopupWindow(TestActivity.this)
-                        .showAsDropDown(viewById);
-            }
-        });
+
 
     }
 }

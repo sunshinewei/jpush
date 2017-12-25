@@ -34,4 +34,5 @@ dependencies {
     compile 'com.lzy.net:okgo:3.0.4'
     //https://github.com/google/gson
     compile 'com.google.code.gson:gson:2.8.2'
+    compile 'com.android.support:design:26.0.0-alpha1'
 }

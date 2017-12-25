@@ -4,9 +4,11 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Build;
 import android.support.annotation.RequiresApi;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.webkit.JavascriptInterface;
 import android.webkit.ValueCallback;
@@ -24,6 +26,7 @@ import izijia.ccpress.com.mylibrary.dialog.BaseBottomDialog;
 import izijia.ccpress.com.mylibrary.dialog.BaseCenterMsgDialog;
 import izijia.ccpress.com.mylibrary.dialog.listener.BaseListener;
 import izijia.ccpress.com.mylibrary.dialog.listener.OnClickListener;
+import izijia.ccpress.com.mylibrary.toast.ToastUtil;
 import izijia.ccpress.com.mylibrary.utils.OSUtils;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
@@ -62,12 +65,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch (v.getId()) {
             case R.id.red:  //调用JS中的无参数方法
 //                webView.loadUrl("javascript:setRed()");
-                startActivity(new Intent(this, Test2Activity.class));
+//                startActivity(new Intent(this, Test2Activity.class));
+                View inflate = LayoutInflater.from(this).inflate(izijia.ccpress.com.mylibrary.R.layout.toast_view, null);
+                Snackbar.make(webView, "sdfsdf", Snackbar.LENGTH_LONG)
+                        .setAction("确定", new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                ToastUtil.toast(MainActivity.this, "发个好地方个好地方");
+                            }
+                        })
+                        .show();
                 break;
             case R.id.color://调用JS中的有参数方法
 //                webView.loadUrl("javascript:setColor('#00f','代码的触发事件')");
 //                startActivity(new Intent(this, TestActivity.class));
-                startActivity(new Intent(this, HomeActivity.class));
+//                startActivity(new Intent(this, HomeActivity.class));
+                ToastUtil.toast(MainActivity.this, "和国家科技和客户就1");
                 break;
         }
     }
@@ -119,7 +132,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         .setOnClickListener(new OnClickListener() {
                             @Override
                             public void setOnClickListner(View view, int position) {
-                                Toast.makeText(MainActivity.this, "点击了" + position, Toast.LENGTH_LONG).show();
+//                                Toast.makeText(MainActivity.this, "点击了" + position, Toast.LENGTH_LONG).show();
+                                ToastUtil.toast(MainActivity.this, "和国家科技和客户就1");
                             }
                         })
                         .show(getSupportFragmentManager(), "sss");
@@ -131,7 +145,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         .setTitle("这是标题")
                         .setContent("OSUtils" + OSUtils.getDefaultDisplay(MainActivity.this)
                                 .getHeight() + "  :  " + OSUtils.getDefaultDisplay(MainActivity.this)
-                                .getWidth()+"  :  "+OSUtils.getDeviceName()+"  :   "+OSUtils.getDeviceProduct())
+                                .getWidth() + "  :  " + OSUtils.getDeviceName() + "  :   " + OSUtils.getDeviceProduct())
                         .setBaseListener(new BaseListener() {
                             @Override
                             public void setOnClickListner(View view) {

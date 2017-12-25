@@ -1,5 +1,8 @@
 package izijia.ccpress.com.mylibrary.base;
 
+import android.annotation.TargetApi;
+import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -8,7 +11,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.Window;
+import android.view.WindowManager;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -18,6 +23,8 @@ import com.google.gson.Gson;
 
 import izijia.ccpress.com.mylibrary.R;
 import izijia.ccpress.com.mylibrary.base.loadingdialog.view.LoadingDialog;
+import izijia.ccpress.com.mylibrary.utils.StatusBarUtils;
+import izijia.ccpress.com.mylibrary.utils.SystemStatusManager;
 
 
 /**
@@ -47,9 +54,24 @@ public abstract class BaseActivity extends AppCompatActivity implements IBaseVie
         mRootInflate.addView(getLayoutInfater());
 
         setContentView(mRootView);
-        if (getSupportActionBar() != null) {
-            getSupportActionBar().hide();
+//        if (getSupportActionBar() != null) {
+//            getSupportActionBar().hide();
+//        }
+        /**
+         * 设置不用在每一个页面都添加android:fitsSystemWindows="true"
+         */
+        ViewGroup bar = findViewById(Window.ID_ANDROID_CONTENT);
+        View childAt = bar.getChildAt(0);
+        if (childAt != null && Build.VERSION.SDK_INT > 14) {
+            childAt.setFitsSystemWindows(true);
         }
+        /**
+         * 状态栏
+         */
+        new SystemStatusManager(this)
+                .setTranslucentStatus(R.color.color_fff);
+
+        initView();
         initData();
         initToolBar(inflate);
     }
@@ -130,11 +152,18 @@ public abstract class BaseActivity extends AppCompatActivity implements IBaseVie
                 .show();
     }
 
+    /**
+     * 网络请求完成
+     * <p>
+     * 1.失败 失败中处理
+     * <p>
+     * 2.成功 成功中处理
+     */
     @Override
     public void loadfinishView() {
-        if (mLoadingDialog != null) {
-            mLoadingDialog.loadSuccess();
-        }
+//        if (mLoadingDialog != null) {
+//            mLoadingDialog.loadSuccess();
+//        }
     }
 
 
@@ -144,5 +173,6 @@ public abstract class BaseActivity extends AppCompatActivity implements IBaseVie
             mLoadingDialog.loadFailed();
         }
     }
+
 
 }

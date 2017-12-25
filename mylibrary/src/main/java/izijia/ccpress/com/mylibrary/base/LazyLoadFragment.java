@@ -133,6 +133,7 @@ public abstract class LazyLoadFragment extends Fragment implements IBaseView {
 
 
     LoadingDialog mLoadingDialog;
+
     @Override
     public void LoadingDialog() {
         mLoadingDialog = new LoadingDialog(getContext());
@@ -142,12 +143,16 @@ public abstract class LazyLoadFragment extends Fragment implements IBaseView {
                 .show();
     }
 
+    /**
+     * 同Activity
+     */
     @Override
     public void loadfinishView() {
-        if (mLoadingDialog != null) {
-            mLoadingDialog.loadSuccess();
-        }
+//        if (mLoadingDialog != null) {
+//            mLoadingDialog.loadSuccess();
+//        }
     }
+
     @Override
     public void LoadingFailDialog(String msg) {
         if (mLoadingDialog != null) {
