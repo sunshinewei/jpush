@@ -2,6 +2,7 @@ package izijia.ccpress.com.jpushdemo.data;
 
 import izijia.ccpress.com.jpushdemo.bean.TestDemoBean;
 import izijia.ccpress.com.mylibrary.gospace.BaseGoSpace;
+import izijia.ccpress.com.mylibrary.gospace.listener.OnNoIntentListener;
 import izijia.ccpress.com.mylibrary.gospace.listener.OnSuccessListener;
 
 /**
@@ -26,6 +27,12 @@ public class TestPresenter {
                     @Override
                     public void setSuccessInfo(TestDemoBean datas) {
                         mTestDemoView.successView(datas);
+                    }
+                })
+                .setOnNoIntentListener(new OnNoIntentListener() {
+                    @Override
+                    public void LoadCache() {
+
                     }
                 })
                 .goGetSpace();

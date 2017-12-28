@@ -22,12 +22,14 @@ import java.util.ArrayList;
 
 import izijia.ccpress.com.jpushdemo.activity.news.HomeActivity;
 import izijia.ccpress.com.jpushdemo.test.Test2Activity;
+import izijia.ccpress.com.jpushdemo.test.TestActivity;
 import izijia.ccpress.com.mylibrary.dialog.BaseBottomDialog;
 import izijia.ccpress.com.mylibrary.dialog.BaseCenterMsgDialog;
 import izijia.ccpress.com.mylibrary.dialog.listener.BaseListener;
 import izijia.ccpress.com.mylibrary.dialog.listener.OnClickListener;
 import izijia.ccpress.com.mylibrary.toast.ToastUtil;
 import izijia.ccpress.com.mylibrary.utils.OSUtils;
+import okhttp3.internal.cache.DiskLruCache;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -45,6 +47,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         colorButton.setOnClickListener(this);
         initWebView();
         webView.loadUrl("file:///android_asset/test.html"); //加载assets文件中的H5页面
+
     }
 
 
@@ -58,6 +61,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         ButtonClick click = new ButtonClick();
         //这里添加JS的交互事件，这样H5就可以调用原生的代码
         webView.addJavascriptInterface(click, click.toString());
+
+
     }
 
     @Override
@@ -118,44 +123,44 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 //                    .setPositiveButton("确定",null)
 //                    .create().show();
             if ("title".equals(title)) {
-//                startActivity(new Intent(MainActivity.this, TestActivity.class));
-                String[] mString = {"1233", "1233", "1233", "1233", "1233"};
-
-                ArrayList<String> mArray = new ArrayList<>();
-                mArray.add("sdfdfdf");
-                mArray.add("sdfdfdf");
-                mArray.add("sdfdfdf");
-                mArray.add("sdfdfdf");
-                mArray.add("sdfdfdf");
-                new BaseBottomDialog()
-                        .setmArrays(mArray)
-                        .setOnClickListener(new OnClickListener() {
-                            @Override
-                            public void setOnClickListner(View view, int position) {
-//                                Toast.makeText(MainActivity.this, "点击了" + position, Toast.LENGTH_LONG).show();
-                                ToastUtil.toast(MainActivity.this, "和国家科技和客户就1");
-                            }
-                        })
-                        .show(getSupportFragmentManager(), "sss");
+                startActivity(new Intent(MainActivity.this, TestActivity.class));
+//                String[] mString = {"1233", "1233", "1233", "1233", "1233"};
+//
+//                ArrayList<String> mArray = new ArrayList<>();
+//                mArray.add("sdfdfdf");
+//                mArray.add("sdfdfdf");
+//                mArray.add("sdfdfdf");
+//                mArray.add("sdfdfdf");
+//                mArray.add("sdfdfdf");
+//                new BaseBottomDialog()
+//                        .setmArrays(mArray)
+//                        .setOnClickListener(new OnClickListener() {
+//                            @Override
+//                            public void setOnClickListner(View view, int position) {
+////                                Toast.makeText(MainActivity.this, "点击了" + position, Toast.LENGTH_LONG).show();
+//                                ToastUtil.toast(MainActivity.this, "和国家科技和客户就1");
+//                            }
+//                        })
+//                        .show(getSupportFragmentManager(), "sss");
 
 
             } else {
 
-                BaseCenterMsgDialog.newInstance()
-                        .setTitle("这是标题")
-                        .setContent("OSUtils" + OSUtils.getDefaultDisplay(MainActivity.this)
-                                .getHeight() + "  :  " + OSUtils.getDefaultDisplay(MainActivity.this)
-                                .getWidth() + "  :  " + OSUtils.getDeviceName() + "  :   " + OSUtils.getDeviceProduct())
-                        .setBaseListener(new BaseListener() {
-                            @Override
-                            public void setOnClickListner(View view) {
-                                Toast.makeText(MainActivity.this, "点击了确定", Toast.LENGTH_LONG).show();
-                            }
-                        })
-                        .show(MainActivity.this)
-                        .setCancelable(false);
+//                BaseCenterMsgDialog.newInstance()
+//                        .setTitle("这是标题")
+//                        .setContent("OSUtils" + OSUtils.getDefaultDisplay(MainActivity.this)
+//                                .getHeight() + "  :  " + OSUtils.getDefaultDisplay(MainActivity.this)
+//                                .getWidth() + "  :  " + OSUtils.getDeviceName() + "  :   " + OSUtils.getDeviceProduct())
+//                        .setBaseListener(new BaseListener() {
+//                            @Override
+//                            public void setOnClickListner(View view) {
+//                                Toast.makeText(MainActivity.this, "点击了确定", Toast.LENGTH_LONG).show();
+//                            }
+//                        })
+//                        .show(MainActivity.this)
+//                        .setCancelable(false);
 
-//                startActivity(new Intent(MainActivity.this, HomeActivity.class));
+                startActivity(new Intent(MainActivity.this, HomeActivity.class));
 
             }
         }

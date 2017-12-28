@@ -13,6 +13,7 @@ import java.util.HashMap;
 
 import izijia.ccpress.com.mylibrary.MyLibApplication;
 import izijia.ccpress.com.mylibrary.base.IBaseView;
+import izijia.ccpress.com.mylibrary.gospace.listener.OnNoIntentListener;
 import izijia.ccpress.com.mylibrary.gospace.listener.OnSuccessListener;
 import izijia.ccpress.com.mylibrary.utils.NetWorkStatus;
 
@@ -30,7 +31,9 @@ public class BaseGoSpace<T> {
 
     private boolean isLoad = true;//设置加载模式 false:进入页面加载，true:单个点击事件请求
 
+    private boolean isCache = false;
     private OnSuccessListener mOnSuccessListener;//请求成功监听
+    private OnNoIntentListener mOnNoIntentListener;//无网络监听
     private IBaseView mBaseView;//
 
 
@@ -105,10 +108,23 @@ public class BaseGoSpace<T> {
         return this;
     }
 
+    public BaseGoSpace setCache(boolean cache) {
+        isCache = cache;
+        return this;
+    }
+
+    public BaseGoSpace setOnNoIntentListener(OnNoIntentListener onNoIntentListener) {
+        mOnNoIntentListener = onNoIntentListener;
+        return this;
+    }
+
     /**
      * get请求
      */
     public void goGetSpace() {
+        if (isCache) {
+            mOnNoIntentListener.LoadCache();
+        }
 //        if (!NetWorkStatus.isNetworkConnected(MyLibApplication.mContext)) {
 //            if (!isLoad) {
 //                mBaseView.failLoad();

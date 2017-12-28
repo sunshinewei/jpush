@@ -56,6 +56,8 @@ dependencies {
     compile project(':mylibrary')
     //https://github.com/airbnb/lottie-android
     compile 'com.airbnb.android:lottie:2.5.0-beta1'
+
+    compile 'com.squareup.picasso:picasso:2.5.1'
 }
 repositories {
     mavenCentral()

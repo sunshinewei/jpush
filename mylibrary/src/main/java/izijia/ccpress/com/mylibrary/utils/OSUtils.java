@@ -2,6 +2,8 @@ package izijia.ccpress.com.mylibrary.utils;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.os.Build;
 import android.util.DisplayMetrics;
 import android.view.Display;
@@ -56,6 +58,7 @@ public class OSUtils {
 
         return Build.MODEL;
     }
+
     /**
      * 设备生产厂商
      *
@@ -74,6 +77,22 @@ public class OSUtils {
     public static String getSystemVersion() {
 
         return Build.VERSION.RELEASE;
+    }
+
+    /**
+     * 应用程序的版本号
+     *
+     * @param context
+     * @return
+     */
+    public static int getAppVersion(Context context) {
+        try {
+            PackageInfo info = context.getPackageManager().getPackageInfo(context.getPackageName(), 0);
+            return info.versionCode;
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        }
+        return 1;
     }
 
 }

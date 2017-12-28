@@ -20,8 +20,9 @@
         android:id="@+id/img_load"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_below="@+id/tv_load"
         android:gravity="center"
-        android:visibility="gone" />
+        android:visibility="visible" />
 
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/animation_view"

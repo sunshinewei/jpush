@@ -1,6 +1,7 @@
 package izijia.ccpress.com.mylibrary.base;
 
 import android.annotation.TargetApi;
+import android.content.Context;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
@@ -39,10 +40,13 @@ public abstract class BaseActivity extends AppCompatActivity implements IBaseVie
 
     private RelativeLayout mRootView;
 
+    public Context mContext;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        mContext = this;
         mRootView = (RelativeLayout) LayoutInflater.from(this).inflate(R.layout.base_activity_view, null);
 
         mRootInflate = (RelativeLayout) mRootView.findViewById(R.id.root_view);
