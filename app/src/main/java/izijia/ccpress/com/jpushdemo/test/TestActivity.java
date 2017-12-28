@@ -1,9 +1,18 @@
 package izijia.ccpress.com.jpushdemo.test;
 
+import android.animation.ObjectAnimator;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.transition.Explode;
+import android.transition.Fade;
+import android.transition.Slide;
 import android.util.Log;
 
+import android.view.Window;
+import android.view.animation.AlphaAnimation;
+import android.view.animation.RotateAnimation;
+import android.view.animation.ScaleAnimation;
+import android.view.animation.TranslateAnimation;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -36,6 +45,7 @@ public class TestActivity extends BaseLoadActivity implements TestDemoView {
 
     @Override
     public void initView() {
+
     }
 
     LruJsonCache lruJsonCache;
@@ -81,9 +91,6 @@ public class TestActivity extends BaseLoadActivity implements TestDemoView {
             }
         }
 
-
-
-
 //        final TextView viewById = (TextView) findViewById(R.id.tv_load);
 //        RecyclerView mRecy = (RecyclerView) findViewById(R.id.recy);
 //        final ArrayList<TestBean> mA = new ArrayList<>();
@@ -108,4 +115,11 @@ public class TestActivity extends BaseLoadActivity implements TestDemoView {
 //        mRecy.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
 //        mRecy.setAdapter(baseAdpter);
     }
+
+
+    @Override
+    public void onEnterAnimationComplete() {
+        super.onEnterAnimationComplete();
+    }
+
 }

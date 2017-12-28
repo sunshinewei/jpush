@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Build;
 import android.support.annotation.RequiresApi;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -22,6 +23,7 @@ import java.util.ArrayList;
 
 import izijia.ccpress.com.jpushdemo.activity.news.HomeActivity;
 import izijia.ccpress.com.jpushdemo.test.Test2Activity;
+import izijia.ccpress.com.jpushdemo.test.Test3Activity;
 import izijia.ccpress.com.jpushdemo.test.TestActivity;
 import izijia.ccpress.com.mylibrary.dialog.BaseBottomDialog;
 import izijia.ccpress.com.mylibrary.dialog.BaseCenterMsgDialog;
@@ -90,6 +92,30 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
+    public void explode(View view) {
+        Intent intent = new Intent(this, TestActivity.class);
+        intent.putExtra("flag", "explode");
+        startActivity(intent,
+                ActivityOptionsCompat.makeSceneTransitionAnimation(this).toBundle());
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
+    public void slide(View view) {
+        Intent intent = new Intent(this, TestActivity.class);
+        intent.putExtra("flag", "slide");
+        startActivity(intent,
+                ActivityOptionsCompat.makeSceneTransitionAnimation(this).toBundle());
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
+    public void fade(View view) {
+        Intent intent = new Intent(this, TestActivity.class);
+        intent.putExtra("flag", "fade");
+        startActivity(intent,
+                ActivityOptionsCompat.makeSceneTransitionAnimation(this).toBundle());
+    }
+
     /**
      * H5页面按钮点击触发事件
      */
@@ -123,7 +149,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 //                    .setPositiveButton("确定",null)
 //                    .create().show();
             if ("title".equals(title)) {
-                startActivity(new Intent(MainActivity.this, TestActivity.class));
+                startActivity(new Intent(MainActivity.this, Test3Activity.class));
+//                startActivity(new Intent(MainActivity.this, TestActivity.class));
 //                String[] mString = {"1233", "1233", "1233", "1233", "1233"};
 //
 //                ArrayList<String> mArray = new ArrayList<>();
@@ -161,8 +188,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 //                        .setCancelable(false);
 
                 startActivity(new Intent(MainActivity.this, HomeActivity.class));
-
+                overridePendingTransition(R.anim.slide_in_left, R.anim.slide_in_right);
             }
         }
     }
+
+
 }
