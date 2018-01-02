@@ -10,7 +10,8 @@ import android.widget.Toast;
 import izijia.ccpress.com.mylibrary.R;
 
 /**
- * Created by Admin on 2017/12/25.
+ * @author Admin
+ * @date 2017/12/25
  */
 
 public class ToastUtil {

@@ -1,10 +1,8 @@
 package izijia.ccpress.com.mylibrary.dialog;
 
 import android.app.Activity;
-import android.app.Dialog;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
-import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.Gravity;

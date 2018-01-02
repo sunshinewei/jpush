@@ -49,7 +49,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         colorButton.setOnClickListener(this);
         initWebView();
         webView.loadUrl("file:///android_asset/test.html"); //加载assets文件中的H5页面
-
     }
 
 
@@ -72,23 +71,24 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch (v.getId()) {
             case R.id.red:  //调用JS中的无参数方法
 //                webView.loadUrl("javascript:setRed()");
-//                startActivity(new Intent(this, Test2Activity.class));
-                View inflate = LayoutInflater.from(this).inflate(izijia.ccpress.com.mylibrary.R.layout.toast_view, null);
-                Snackbar.make(webView, "sdfsdf", Snackbar.LENGTH_LONG)
-                        .setAction("确定", new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-                                ToastUtil.toast(MainActivity.this, "发个好地方个好地方");
-                            }
-                        })
-                        .show();
+                startActivity(new Intent(this, Test2Activity.class));
+//                View inflate = LayoutInflater.from(this).inflate(izijia.ccpress.com.mylibrary.R.layout.toast_view, null);
+//                Snackbar.make(webView, "sdfsdf", Snackbar.LENGTH_LONG)
+//                        .setAction("确定", new View.OnClickListener() {
+//                            @Override
+//                            public void onClick(View v) {
+//                                ToastUtil.toast(MainActivity.this, "发个好地方个好地方");
+//                            }
+//                        })
+//                        .show();
                 break;
             case R.id.color://调用JS中的有参数方法
 //                webView.loadUrl("javascript:setColor('#00f','代码的触发事件')");
-//                startActivity(new Intent(this, TestActivity.class));
-//                startActivity(new Intent(this, HomeActivity.class));
-                ToastUtil.toast(MainActivity.this, "和国家科技和客户就1");
-                break;
+                startActivity(new Intent(this, TestActivity.class));
+////                startActivity(new Intent(this, HomeActivity.class));
+//                ToastUtil.toast(MainActivity.this, "和国家科技和客户就1");
+//                break;
+                default:
         }
     }
 

@@ -1,6 +1,7 @@
 package izijia.ccpress.com.jpushdemo.test;
 
 import android.animation.ObjectAnimator;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.transition.Explode;
@@ -57,6 +58,7 @@ public class TestActivity extends BaseLoadActivity implements TestDemoView {
 //        mTestPresenter.getData();
         successView(null);
     }
+
 
     @Override
     public void setRetryListener() {

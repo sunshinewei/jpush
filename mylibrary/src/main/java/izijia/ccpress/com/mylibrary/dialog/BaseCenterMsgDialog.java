@@ -1,7 +1,5 @@
 package izijia.ccpress.com.mylibrary.dialog;
 
-import android.app.Activity;
-import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;

@@ -35,7 +35,9 @@
         <activity android:name=".test.Test2Activity" />
         <activity android:name=".test.TestActivity" />
         <activity android:name=".activity.news.HomeActivity" />
-        <activity android:name=".test.Test3Activity" />
+        <activity
+            android:name=".test.Test3Activity">
+        </activity>
         <activity android:name=".test.Test4Activity"></activity>
     </application>
 
