@@ -32,6 +32,9 @@ public class BaseCenterMsgDialog extends BaseDialog {
 
     private BaseListener mBaseListener;
 
+    /**
+     * @return
+     */
     public static BaseCenterMsgDialog newInstance() {
         return new BaseCenterMsgDialog();
     }

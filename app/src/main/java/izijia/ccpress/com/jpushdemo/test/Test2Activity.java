@@ -93,4 +93,9 @@ public class Test2Activity extends BaseCommonActivity implements TestDemoView {
 
 
     }
+
+    @Override
+    public void successView() {
+
+    }
 }

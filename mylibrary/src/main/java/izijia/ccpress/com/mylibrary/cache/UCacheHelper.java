@@ -13,6 +13,8 @@ import izijia.ccpress.com.mylibrary.utils.OSUtils;
 
 /**
  * Created by Admin on 2017/12/26.
+ * <p>
+ * 图片缓存
  */
 
 public class UCacheHelper {

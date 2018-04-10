@@ -14,7 +14,7 @@ import izijia.ccpress.com.mylibrary.R;
  * @date 2017/12/25
  */
 
-public class ToastUtil {
+public final class ToastUtil {
 
     private static Toast mToast;
 

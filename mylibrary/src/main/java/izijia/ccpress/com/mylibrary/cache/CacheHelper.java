@@ -15,6 +15,8 @@ import java.security.NoSuchAlgorithmException;
 
 /**
  * Created by Admin on 2017/12/26.
+ * <p>
+ * String串缓存
  */
 
 public class CacheHelper {

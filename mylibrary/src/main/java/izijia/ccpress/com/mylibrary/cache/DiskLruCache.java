@@ -195,7 +195,7 @@ public final class DiskLruCache implements Closeable {
 
     /**
      * Returns the ASCII characters up to but not including the next "\r\n", or
-     * "\n".
+     * "\n".  c
      *
      * @throws java.io.EOFException if the stream is exhausted before the next newline
      *     character.

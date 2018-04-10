@@ -1,8 +1,9 @@
 package izijia.ccpress.com.jpushdemo.data;
 
+
+
 import izijia.ccpress.com.jpushdemo.bean.TestDemoBean;
 import izijia.ccpress.com.mylibrary.gospace.BaseGoSpace;
-import izijia.ccpress.com.mylibrary.gospace.listener.OnNoIntentListener;
 import izijia.ccpress.com.mylibrary.gospace.listener.OnSuccessListener;
 
 /**
@@ -18,9 +19,10 @@ public class TestPresenter {
     }
 
     public void getData() {
+
         new BaseGoSpace<TestDemoBean>()
                 .setDataType(TestDemoBean.class)
-                .setUrl("http://s.east-profit.com/api.php/space/detail?latitude=null&longitude=null&id=5")
+                .setUrl("http://dev.m.baobaot.com/api/3/index/marketer")
                 .setBaseView(mTestDemoView)
                 .setIsLoad(false)
                 .setOnSuccessListener(new OnSuccessListener<TestDemoBean>() {
@@ -29,12 +31,6 @@ public class TestPresenter {
                         mTestDemoView.successView(datas);
                     }
                 })
-                .setOnNoIntentListener(new OnNoIntentListener() {
-                    @Override
-                    public void LoadCache() {
-
-                    }
-                })
-                .goGetSpace();
+                .goPostSpace();
     }
 }

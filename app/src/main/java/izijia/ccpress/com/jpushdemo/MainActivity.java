@@ -19,9 +19,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.ArrayList;
 
-import izijia.ccpress.com.jpushdemo.activity.news.HomeActivity;
 import izijia.ccpress.com.jpushdemo.test.Test2Activity;
 import izijia.ccpress.com.jpushdemo.test.Test3Activity;
 import izijia.ccpress.com.jpushdemo.test.TestActivity;
@@ -187,7 +185,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 //                        .show(MainActivity.this)
 //                        .setCancelable(false);
 
-                startActivity(new Intent(MainActivity.this, HomeActivity.class));
+//                startActivity(new Intent(MainActivity.this, HomeActivity.class));
                 overridePendingTransition(R.anim.slide_in_left, R.anim.slide_in_right);
             }
         }

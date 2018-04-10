@@ -10,4 +10,7 @@ import izijia.ccpress.com.mylibrary.base.IBaseView;
 public interface TestDemoView extends IBaseView {
 
     void successView(TestDemoBean bean);
+
+    void successView();
+
 }

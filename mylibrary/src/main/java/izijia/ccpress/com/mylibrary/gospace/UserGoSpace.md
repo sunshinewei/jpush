@@ -15,3 +15,10 @@
                 })
                 .goGetSpace();
 </code></pre>
+
+#### BaseLoadActivity的使用
+
+##### 在成功页面添加网络请求状态（1:成功 2:失败 3：加载中）
+<pre><code>
+statusViewChange(1);
+</code></pre>

@@ -43,11 +43,10 @@ public abstract class BaseLoadActivity extends BaseActivity implements LoadListe
     }
 
     /**
-     * 判断布局状态，动态添加布局
+     * 判断布局状态，动态添加布局 1:成功 2:失败 3：加载中
      * (添加ButterKnife时在此添加)
      */
     ViewGroup inflate;
-
     public void statusViewChange(@Nullable int status) {
         mRootInflate.removeAllViews();
         switch (status) {
@@ -63,10 +62,7 @@ public abstract class BaseLoadActivity extends BaseActivity implements LoadListe
             default:
         }
         mRootInflate.addView(inflate);
-
         //添加注入初始化控件，如ButterKnife
-
-
     }
 
 

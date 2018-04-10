@@ -1,6 +1,5 @@
 package izijia.ccpress.com.mylibrary.gospace;
 
-import android.os.Environment;
 import android.util.Log;
 
 import com.google.gson.Gson;
@@ -11,11 +10,9 @@ import com.lzy.okgo.request.base.Request;
 
 import java.util.HashMap;
 
-import izijia.ccpress.com.mylibrary.MyLibApplication;
 import izijia.ccpress.com.mylibrary.base.IBaseView;
 import izijia.ccpress.com.mylibrary.gospace.listener.OnNoIntentListener;
 import izijia.ccpress.com.mylibrary.gospace.listener.OnSuccessListener;
-import izijia.ccpress.com.mylibrary.utils.NetWorkStatus;
 
 /**
  * Created by Administrator on 2017/12/5.
@@ -113,6 +110,12 @@ public class BaseGoSpace<T> {
         return this;
     }
 
+    /**
+     * 设置缓存
+     *
+     * @param onNoIntentListener
+     * @return
+     */
     public BaseGoSpace setOnNoIntentListener(OnNoIntentListener onNoIntentListener) {
         mOnNoIntentListener = onNoIntentListener;
         return this;
@@ -189,6 +192,9 @@ public class BaseGoSpace<T> {
 
                     @Override
                     public void onSuccess(Response<String> response) {
+
+                        Log.e("请求成功", response.body());
+
                         goAnalysisData(response.body());
                     }
 
@@ -206,6 +212,7 @@ public class BaseGoSpace<T> {
                     @Override
                     public void onFinish() {
                         super.onFinish();
+                        Log.e("失败", "请求失败");
                         if (isLoad) {
                             mBaseView.loadfinishView();
                         }
