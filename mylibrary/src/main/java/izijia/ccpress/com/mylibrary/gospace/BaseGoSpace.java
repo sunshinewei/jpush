@@ -195,6 +195,8 @@ public class BaseGoSpace<T> {
 
                         Log.e("请求成功", response.body());
 
+                        mResponseJson.jsonData(response.body());
+
                         goAnalysisData(response.body());
                     }
 
@@ -220,6 +222,14 @@ public class BaseGoSpace<T> {
                 });
     }
 
+
+    private ResponseJson mResponseJson;
+
+    public BaseGoSpace<T> setmResponseJson(ResponseJson mResponseJson) {
+        this.mResponseJson = mResponseJson;
+        return this;
+    }
+
     /**
      * 解析数据
      *
@@ -238,5 +248,11 @@ public class BaseGoSpace<T> {
                 mBaseView.LoadingFailDialog("数据解析失败!");
             }
         }
+    }
+
+
+    public interface ResponseJson {
+
+        void jsonData(String json);
     }
 }
