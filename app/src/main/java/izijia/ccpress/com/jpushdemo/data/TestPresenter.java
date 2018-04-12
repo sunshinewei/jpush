@@ -70,6 +70,33 @@ public class TestPresenter {
             if (jsonV instanceof JSONObject) {
                 Log.v("key===>", next);
                 Log.v("values1===>", jsonValues.toString());
+                pareJson2(jsonValues.toString());
+            } else if (jsonV instanceof JSONArray) {
+                Log.v("key===>", next);
+                Log.v("values2===>", jsonValues.toString());
+            } else {
+                Log.v("key===>", next);
+                Log.v("values3===>", jsonValues.toString());
+            }
+        }
+    }
+
+    /**
+     * json解析
+     *
+     * @param json
+     * @throws JSONException
+     */
+    private void pareJson2(String json) throws JSONException {
+        JSONObject jsonObject = new JSONObject(json);
+        Iterator<String> keys = jsonObject.keys();
+        while (keys.hasNext()) {
+            String next = keys.next();
+            String jsonValues = jsonObject.getString(next);
+            Object jsonV = new JSONTokener(jsonValues).nextValue();
+            if (jsonV instanceof JSONObject) {
+                Log.v("key===>", next);
+                Log.v("values1===>", jsonValues.toString());
                 pareJson(jsonValues.toString());
             } else if (jsonV instanceof JSONArray) {
                 Log.v("key===>", next);
@@ -80,5 +107,6 @@ public class TestPresenter {
             }
         }
     }
+
 
 }
