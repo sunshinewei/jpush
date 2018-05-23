@@ -13,9 +13,32 @@ public class ProDetailBean {
 
     private String title;
 
-    private String type;
+    private int type; //布局类型
 
     private String key;
+
+    private int onClick;
+
+    private int gride; //控制网格 1，网格
+
+
+    public int getGride() {
+        return gride;
+    }
+
+    public ProDetailBean setGride(int gride) {
+        this.gride = gride;
+        return this;
+    }
+
+    public ProDetailBean setOnClick(int onClick) {
+        this.onClick = onClick;
+        return this;
+    }
+
+    public int getOnClick() {
+        return onClick;
+    }
 
     private ArrayList<String> propoty;
 
@@ -24,40 +47,45 @@ public class ProDetailBean {
         return name;
     }
 
-    public void setName(String name) {
+    public ProDetailBean setName(String name) {
         this.name = name;
+        return this;
     }
 
     public String getTitle() {
         return title;
     }
 
-    public void setTitle(String title) {
+    public ProDetailBean setTitle(String title) {
         this.title = title;
+        return this;
     }
 
-    public String getType() {
+    public int getType() {
         return type;
     }
 
-    public void setType(String type) {
+    public ProDetailBean setType(int type) {
         this.type = type;
+        return this;
     }
 
     public ArrayList<String> getPropoty() {
         return propoty;
     }
 
-    public void setPropoty(ArrayList<String> propoty) {
+    public ProDetailBean setPropoty(ArrayList<String> propoty) {
         this.propoty = propoty;
+        return this;
     }
 
     public String getKey() {
         return key;
     }
 
-    public void setKey(String key) {
+    public ProDetailBean setKey(String key) {
         this.key = key;
+        return this;
     }
 
     @Override

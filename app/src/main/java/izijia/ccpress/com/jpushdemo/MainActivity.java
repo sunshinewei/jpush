@@ -1,14 +1,16 @@
 package izijia.ccpress.com.jpushdemo;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
+import android.support.annotation.NonNull;
 import android.support.annotation.RequiresApi;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.webkit.JavascriptInterface;
@@ -20,6 +22,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
+import java.security.acl.Permission;
+import java.util.List;
+
 import izijia.ccpress.com.jpushdemo.test.Test2Activity;
 import izijia.ccpress.com.jpushdemo.test.Test3Activity;
 import izijia.ccpress.com.jpushdemo.test.TestActivity;
@@ -30,8 +35,9 @@ import izijia.ccpress.com.mylibrary.dialog.listener.OnClickListener;
 import izijia.ccpress.com.mylibrary.toast.ToastUtil;
 import izijia.ccpress.com.mylibrary.utils.OSUtils;
 import okhttp3.internal.cache.DiskLruCache;
+import pub.devrel.easypermissions.EasyPermissions;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener, EasyPermissions.PermissionCallbacks {
 
     private WebView webView;
     private Button redButton, colorButton;
@@ -46,7 +52,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         redButton.setOnClickListener(this);
         colorButton.setOnClickListener(this);
         initWebView();
-        webView.loadUrl("file:///android_asset/test.html"); //加载assets文件中的H5页面
+//        webView.loadUrl("file:///android_asset/test.html"); //加载assets文件中的H5页面
+        webView.loadUrl("http://dev.m.baobaot.com/common/article_detail?cid=6");
     }
 
 
@@ -58,8 +65,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         WebSettings settings = webView.getSettings();
         settings.setJavaScriptEnabled(true);  //设置运行使用JS
         ButtonClick click = new ButtonClick();
+        JsPurchase jsPurchase=new JsPurchase();
         //这里添加JS的交互事件，这样H5就可以调用原生的代码
-        webView.addJavascriptInterface(click, click.toString());
+        webView.addJavascriptInterface(jsPurchase, "BBT_APP");
 
 
     }
@@ -82,12 +90,38 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.color://调用JS中的有参数方法
 //                webView.loadUrl("javascript:setColor('#00f','代码的触发事件')");
-                startActivity(new Intent(this, TestActivity.class));
+//                startActivity(new Intent(this, TestActivity.class));
 ////                startActivity(new Intent(this, HomeActivity.class));
 //                ToastUtil.toast(MainActivity.this, "和国家科技和客户就1");
 //                break;
-                default:
+
+//                if (EasyPermissions.hasPermissions(this, "android.permission.READ_EXTERNAL_STORAGE")) {
+//
+//                } else {
+//                    EasyPermissions.requestPermissions(this, "是否授权存储!", 100, "android.permission.READ_EXTERNAL_STORAGE");
+//                }
+            default:
         }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        EasyPermissions.onRequestPermissionsResult(requestCode, permissions, grantResults, this);
+    }
+
+    @Override
+    public void onPermissionsGranted(int requestCode, List<String> list) {
+        // Some permissions have been granted
+        // ...
+        ToastUtil.toast(this, "授权成功" + requestCode);
+    }
+
+    @Override
+    public void onPermissionsDenied(int requestCode, List<String> list) {
+        // Some permissions have been denied
+        // ...
+        ToastUtil.toast(this, "授权失败" + requestCode);
     }
 
     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
@@ -112,6 +146,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         intent.putExtra("flag", "fade");
         startActivity(intent,
                 ActivityOptionsCompat.makeSceneTransitionAnimation(this).toBundle());
+    }
+
+
+    public class JsPurchase{
+        //Map<String,String> map=new HashMap<>();
+
+        @JavascriptInterface
+        public void goPurchase(String jsPurchaseList){
+
+//            Intent intent=new Intent(WebActivity.this, PurchaseActivity.class);
+//            startActivity(intent);
+
+            Log.e("aaa",jsPurchaseList);
+        }
     }
 
     /**

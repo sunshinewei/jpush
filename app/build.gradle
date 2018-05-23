@@ -11,7 +11,7 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-
+        multiDexEnabled true
         //机光推送
         ndk {
             //选择要添加的对应cpu类型的.so库。
@@ -24,7 +24,12 @@ android {
                 JPUSH_APPKEY : "0eae71084baf7068add1dbc1", //JPush上注册的包名对应的appkey.
                 JPUSH_CHANNEL: "developer-default", //暂时填写默认值即可.
         ]
-        //机光推送
+    }
+
+    dexOptions {
+        incremental true
+        javaMaxHeapSize "4g"
+        preDexLibraries = false
     }
     buildTypes {
         release {
@@ -32,24 +37,23 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    configurations {
+        all*.exclude group: 'com.android.support', module: 'support-v4'
+    }
 }
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
-    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
-        exclude group: 'com.android.support', module: 'support-annotations'
-    })
-    compile 'com.android.support:appcompat-v7:25.3.1'
-    testCompile 'junit:junit:4.12'
-    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+//    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+//        exclude group: 'com.android.support', module: 'support-annotations'
+//    })
     compile 'cn.jiguang.sdk:jpush:3.0.9'
     // 此处以JPush 3.0.9 版本为例。
     compile 'cn.jiguang.sdk:jcore:1.1.7'
     compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
     // 此处以JCore 1.1.7 版本为例。
-    compile 'com.lzy.net:okgo:3.0.4'
     compile 'com.google.code.gson:gson:2.8.2'
-    compile 'com.android.support:recyclerview-v7:25.3.+'
     //网络请求
     //https://github.com/jeasonlzy/okhttp-OkGo
     compile 'com.lzy.net:okgo:3.0.4'
@@ -58,7 +62,10 @@ dependencies {
     compile 'com.airbnb.android:lottie:2.5.0-beta1'
 
     compile 'com.squareup.picasso:picasso:2.5.1'
-}
-repositories {
-    mavenCentral()
+
+//    compile 'com.android.support:design:26.0.0-alpha1'{
+//        exclude module: 'android.support.design.widget'
+//    }
+//        exclude module: 'support.design.widget.CoordinatorLayout;'
+//    }
 }

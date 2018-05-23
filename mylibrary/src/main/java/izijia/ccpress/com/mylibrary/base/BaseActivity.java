@@ -52,7 +52,6 @@ public abstract class BaseActivity extends AppCompatActivity implements IBaseVie
 
         getWindow().requestFeature(Window.FEATURE_CONTENT_TRANSITIONS);
 
-
         mContext = this;
         mRootView = (RelativeLayout) LayoutInflater.from(this).inflate(R.layout.base_activity_view, null);
 

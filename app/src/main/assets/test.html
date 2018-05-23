@@ -7,25 +7,59 @@
 </head>
 
 <body>
-<p id="ptext">点击按键0 执行android中的 public void click0(){} 方法</p>
-<Button id="buttonId0" class="buttonClass" onclick="javascript:button.click0()">按键0</Button>
-<p>点击按键1 执行android中的 public void click0(String data1,String data2){}方法</p>
-<Button id="buttonId1" class="buttonClass" onclick="javascript:button.click0('参数1','参数2')">按键1
-</Button>
 
-<script>
-        function setRed(){
-        //这个方法设置 id 为 ptext 的元素的背景色为红色
-        var a = document.getElementById('ptext');
-        a.style.backgroundColor="#F00";
-    }
-    function setColor(color,text){
-        //这个方法设置 id 为 ptext 的元素的背景色为指定颜色
-        //设置 id 为 ptext 的元素的内容为text
-        var a = document.getElementById('ptext');
-        a.style.backgroundColor=color;
-        a.innerHTML = text;
-    }
+<div class="warp inner">
+    <h3>app 跳转测试</h3>
+    <p>app 跳转测试</p>
 
+
+    <script>
+goods_list = [{"id":"118", "num":"1"}, {"id":"120", "num":"2"}];
+function aa() {
+  try {
+    BBT_APP.goPurchase(goods_list);
+  } catch (e) {
+    alert(e);
+  }
+}
+function bb() {
+  try {
+    BBT_APP.goPurchase('[{"id":"118", "num":"1"}, {"id":"120", "num":"2"}]');
+  } catch (e) {
+    alert(e);
+  }
+}
 </script>
+
+    <a href="javascript:aa();" class="pui-btn pui-btn-secondary"><i class="fa fa-lg fa-github"></i> 立即购买</a>
+    <a href="javascript:bb();" class="pui-btn pui-btn-secondary"><i class="fa fa-lg fa-github"></i> 立即购买2</a>
+
+</div>
+
+
 </body>
+
+
+<!--<body>-->
+<!--<p id="ptext">点击按键0 执行android中的 public void click0(){} 方法</p>-->
+<!--<Button id="buttonId0" class="buttonClass" onclick="javascript:button.click0()">按键0</Button>-->
+<!--<p>点击按键1 执行android中的 public void click0(String data1,String data2){}方法</p>-->
+<!--<Button id="buttonId1" class="buttonClass" onclick="javascript:button.click0('参数1','参数2')">按键1-->
+<!--</Button>-->
+
+<!--<script>-->
+        <!--function setRed(){-->
+        <!--//这个方法设置 id 为 ptext 的元素的背景色为红色-->
+        <!--var a = document.getElementById('ptext');-->
+        <!--a.style.backgroundColor="#F00";-->
+    <!--}-->
+    <!--function setColor(color,text){-->
+        <!--//这个方法设置 id 为 ptext 的元素的背景色为指定颜色-->
+        <!--//设置 id 为 ptext 的元素的内容为text-->
+        <!--var a = document.getElementById('ptext');-->
+        <!--a.style.backgroundColor=color;-->
+        <!--a.innerHTML = text;-->
+    <!--}-->
+
+<!--</script>-->
+<!--</body>-->

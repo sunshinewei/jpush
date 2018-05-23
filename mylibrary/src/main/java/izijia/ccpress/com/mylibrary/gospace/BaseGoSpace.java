@@ -210,7 +210,6 @@ public class BaseGoSpace<T> {
                             mBaseView.LoadingFailDialog("请求异常!");
                         }
                     }
-
                     @Override
                     public void onFinish() {
                         super.onFinish();

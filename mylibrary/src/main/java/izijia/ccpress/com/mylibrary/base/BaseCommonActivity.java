@@ -1,5 +1,8 @@
 package izijia.ccpress.com.mylibrary.base;
 
+import android.arch.lifecycle.Lifecycle;
+import android.arch.lifecycle.LifecycleOwner;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 

@@ -1,5 +1,6 @@
 package izijia.ccpress.com.jpushdemo.test;
 
+import android.content.Intent;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
@@ -45,22 +46,24 @@ public class Test2Activity extends BaseCommonActivity implements TestDemoView {
             @Override
             public void onClick(View v) {
                 Log.e("点击", "点击");
-                ArrayList<String> mArray = new ArrayList<>();
-                mArray.add("sdfdfdf");
-                mArray.add("sdfdfdf");
-                mArray.add("sdfdfdf");
-                mArray.add("sdfdfdf");
-                mArray.add("sdfdfdf");
+//                ArrayList<String> mArray = new ArrayList<>();
+//                mArray.add("sdfdfdf");
+//                mArray.add("sdfdfdf");
+//                mArray.add("sdfdfdf");
+//                mArray.add("sdfdfdf");
+//                mArray.add("sdfdfdf");
+//
+//                DialogFactory.dialogViewBottomMsg(Test2Activity.this)
+//                        .setmArrays(mArray)
+//                        .setOnClickListener(new OnClickListener() {
+//                            @Override
+//                            public void setOnClickListner(View view, int position) {
+//                                toastLong("sdfsdgfsdfg");
+//                            }
+//                        })
+//                        .show(tvLoad);
 
-                DialogFactory.dialogViewBottomMsg(Test2Activity.this)
-                        .setmArrays(mArray)
-                        .setOnClickListener(new OnClickListener() {
-                            @Override
-                            public void setOnClickListner(View view, int position) {
-                                toastLong("sdfsdgfsdfg");
-                            }
-                        })
-                        .show(tvLoad);
+                startActivity(new Intent(mContext, BehaviorActivity.class));
 
 //                new BaseViewBottomPopupWindow(Test2Activity.this)
 //                        .setmArrays(mArray)
