@@ -20,8 +20,7 @@ public class NameViewModel extends ViewModel {
     public MediatorLiveData<String> getCurrentName() {
         if (mCurrentName == null) {
             mCurrentName = new MediatorLiveData<>();
-
-            mCurrentName.postValue("aaaaaaaaaaaaaaa");
+            mCurrentName.postValue("dsasasaad");
         }
         return mCurrentName;
     }
@@ -34,6 +33,4 @@ public class NameViewModel extends ViewModel {
     }
 
 
-
 }
-t

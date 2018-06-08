@@ -1,6 +1,7 @@
 package izijia.ccpress.com.jpushdemo;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
@@ -37,7 +38,7 @@ import izijia.ccpress.com.mylibrary.utils.OSUtils;
 import okhttp3.internal.cache.DiskLruCache;
 import pub.devrel.easypermissions.EasyPermissions;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener, EasyPermissions.PermissionCallbacks {
+public class MainActivity extends Activity implements View.OnClickListener, EasyPermissions.PermissionCallbacks {
 
     private WebView webView;
     private Button redButton, colorButton;
@@ -52,8 +53,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         redButton.setOnClickListener(this);
         colorButton.setOnClickListener(this);
         initWebView();
-//        webView.loadUrl("file:///android_asset/test.html"); //加载assets文件中的H5页面
-        webView.loadUrl("http://dev.m.baobaot.com/common/article_detail?cid=6");
+        webView.loadUrl("file:///android_asset/test.html"); //加载assets文件中的H5页面
+//        webView.loadUrl("http://dev.m.baobaot.com/common/article_detail?cid=6");
     }
 
 
@@ -63,12 +64,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @SuppressLint("JavascriptInterface")  //添加该字段
     private void initWebView() {
         WebSettings settings = webView.getSettings();
-        settings.setJavaScriptEnabled(true);  //设置运行使用JS
+        settings.setJavaScriptEnabled(true) ;  //设置运行使用JS
         ButtonClick click = new ButtonClick();
         JsPurchase jsPurchase=new JsPurchase();
         //这里添加JS的交互事件，这样H5就可以调用原生的代码
         webView.addJavascriptInterface(jsPurchase, "BBT_APP");
-
 
     }
 
@@ -95,11 +95,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 //                ToastUtil.toast(MainActivity.this, "和国家科技和客户就1");
 //                break;
 
-//                if (EasyPermissions.hasPermissions(this, "android.permission.READ_EXTERNAL_STORAGE")) {
-//
-//                } else {
-//                    EasyPermissions.requestPermissions(this, "是否授权存储!", 100, "android.permission.READ_EXTERNAL_STORAGE");
-//                }
+                if (EasyPermissions.hasPermissions(this, "android.permission.READ_EXTERNAL_STORAGE")) {
+
+                } else {
+                    EasyPermissions.requestPermissions(this, "是否授权存储!", 100, "android.permission.READ_EXTERNAL_STORAGE");
+                }
             default:
         }
     }

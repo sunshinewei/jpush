@@ -36,11 +36,22 @@ public class Test2Activity extends BaseCommonActivity implements TestDemoView {
 
     private TextView tvLoad;
 
+    View decorView;
+
     @Override
     public void initView() {
         super.initView();
 
+        decorView = getWindow().getDecorView();
         tvLoad = (TextView) findViewById(R.id.tv_load);
+
+        decorView.setOnSystemUiVisibilityChangeListener(new View.OnSystemUiVisibilityChangeListener() {
+            @Override
+            public void onSystemUiVisibilityChange(int visibility) {
+
+                System.out.println(":visibility" + visibility);
+            }
+        });
 
         tvLoad.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.os.Build;
 import android.support.annotation.RequiresApi;
 
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -44,7 +45,7 @@ public class BehaviorActivity extends BaseCommonActivity {
         mNotificationManager.notify(100, builder.build());
 
         Lifecycle lifecycle = getLifecycle();
-        Log.e("actvity的生命周期",lifecycle.getCurrentState()+"");
+        Log.e("actvity的生命周期", lifecycle.getCurrentState() + "");
     }
 
     private ShareActionProvider mShareActionProvider;

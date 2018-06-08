@@ -3,6 +3,7 @@ package izijia.ccpress.com.mylibrary.dialog;
 import android.app.Activity;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.support.v7.util.DiffUtil;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.Gravity;
@@ -114,6 +115,28 @@ public class BaseBottomDialog extends BaseDialog {
             }
         });
 
+        DiffUtil.DiffResult diffResult = DiffUtil.calculateDiff(new DiffUtil.Callback() {
+            @Override
+            public int getOldListSize() {
+                return 0;
+            }
+
+            @Override
+            public int getNewListSize() {
+                return 0;
+            }
+
+            @Override
+            public boolean areItemsTheSame(int oldItemPosition, int newItemPosition) {
+                return false;
+            }
+
+            @Override
+            public boolean areContentsTheSame(int oldItemPosition, int newItemPosition) {
+                return false;
+            }
+        });
+        diffResult.dispatchUpdatesTo(mDialogAdapter);
     }
 
     /**
