@@ -1,1 +1,1 @@
-include ':app', ':baselibrary', ':mylibrary', ':behaviordemo'
+include ':app', ':baselibrary', ':mylibrary', ':behaviordemo', ':packageandroid'

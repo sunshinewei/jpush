@@ -7,6 +7,7 @@
       <module fileurl="file://$PROJECT_DIR$/behaviordemo/behaviordemo.iml" filepath="$PROJECT_DIR$/behaviordemo/behaviordemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/jpush.iml" filepath="$PROJECT_DIR$/jpush.iml" />
       <module fileurl="file://$PROJECT_DIR$/mylibrary/mylibrary.iml" filepath="$PROJECT_DIR$/mylibrary/mylibrary.iml" />
+      <module fileurl="file://$PROJECT_DIR$/packageandroid/packageandroid.iml" filepath="$PROJECT_DIR$/packageandroid/packageandroid.iml" />
     </modules>
   </component>
 </project>

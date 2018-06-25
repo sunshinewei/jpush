@@ -1,9 +1,12 @@
 package izijia.ccpress.com.jpushdemo.test;
 
 import android.animation.ObjectAnimator;
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.transition.Explode;
@@ -75,7 +78,7 @@ public class TestActivity extends BaseLoadActivity implements TestDemoView {
     }
 
     BaseAdpter baseAdpter;
-
+     TextView viewById;
     @Override
     public void successView(TestDemoBean bean) {
         statusViewChange(1);
@@ -102,34 +105,40 @@ public class TestActivity extends BaseLoadActivity implements TestDemoView {
 //            }
 //        }
 
-        final TextView viewById = (TextView) findViewById(R.id.tv_load);
-        RecyclerView mRecy = (RecyclerView) findViewById(R.id.recy);
-        final ArrayList<TestBean> mA = new ArrayList<>();
-        mA.add(new TestBean("sssss"));
-        mA.add(new TestBean("sssss"));
-        mA.add(new TestBean("sssss"));
-        mA.add(new TestBean("sssss"));
-        mA.add(new TestBean("sssss"));
-        mA.add(new TestBean("sssss"));
 
-        baseAdpter = new BaseAdpter(this, R.layout.adapter_main).setArraryDatas(mA)
-                .setVHolderData(new BaseAdpter.ViewHolderData() {
-                    @Override
-                    public void bindVHTheData(BaseViewHolder holder, int position) {
-                    }
-                }).setItemClickListsner(new OnItemClickListsner() {
-                    @Override
-                    public void setItemOnClickListener(View view, int position) {
-                        baseAdpter.addArraryDatas(mA);
-                    }
-                });
-        mRecy.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
-        mRecy.setAdapter(baseAdpter);
+//        RecyclerView mRecy = (RecyclerView) findViewById(R.id.recy);
+//        final ArrayList<TestBean> mA = new ArrayList<>();
+//        mA.add(new TestBean("sssss"));
+//        mA.add(new TestBean("sssss"));
+//        mA.add(new TestBean("sssss"));
+//        mA.add(new TestBean("sssss"));
+//        mA.add(new TestBean("sssss"));
+//        mA.add(new TestBean("sssss"));
+//
+//        baseAdpter = new BaseAdpter(this, R.layout.adapter_main).setArraryDatas(mA)
+//                .setVHolderData(new BaseAdpter.ViewHolderData() {
+//                    @Override
+//                    public void bindVHTheData(BaseViewHolder holder, int position) {
+//                    }
+//                }).setItemClickListsner(new OnItemClickListsner() {
+//                    @Override
+//                    public void setItemOnClickListener(View view, int position) {
+//                        baseAdpter.addArraryDatas(mA);
+//                    }
+//                });
+//        mRecy.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
+//        mRecy.setAdapter(baseAdpter);
+
+
+//        Message obtain = Message.obtain();
+//        mHanlder.sendMessage(obtain);
     }
 
     @Override
     public void successView() {
         statusViewChange(1);
+        viewById= (TextView) findViewById(R.id.tv_load);
+
     }
 
 
@@ -137,5 +146,8 @@ public class TestActivity extends BaseLoadActivity implements TestDemoView {
     public void onEnterAnimationComplete() {
         super.onEnterAnimationComplete();
     }
+
+
+
 
 }
