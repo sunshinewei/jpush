@@ -32,6 +32,7 @@ BaseCenterMsgDialog.newInstance()
 <pre><code>
  new ViewBottomPopupWindow(Test2Activity.this)
                         .setmArrays(mArray)
+                        .setmGrideCount(3)//设置网格布局，默认垂直流式布局
                         .setOnClickListener(new OnClickListener() {
                             @Override
                             public void setOnClickListner(View view, int position) {
@@ -41,6 +42,5 @@ BaseCenterMsgDialog.newInstance()
                         .show(tvLoad);
 </code></pre>
 
-
-
 #### 使用DialogFactory进行调用
+在DilogFactory中封装了一个工厂模式，只调用即可。

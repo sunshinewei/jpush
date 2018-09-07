@@ -17,7 +17,9 @@
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
-
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
     <application
         android:name=".App"
         android:allowBackup="true"
@@ -37,17 +39,22 @@
         <!-- </activity> -->
 
         <activity android:name=".MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".test.Test2Activity" />
         <activity android:name=".test.TestActivity" />
         <activity android:name=".activity.news.HomeActivity" />
         <activity android:name=".test.Test3Activity"></activity>
         <activity android:name=".test.Test4Activity"></activity>
+        <activity android:name=".TeastActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".networkvideo.ImageActivity"/>
 
         <activity android:name=".test.BehaviorActivity" />
     </application>

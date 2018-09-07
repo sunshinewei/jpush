@@ -21,7 +21,7 @@ import izijia.ccpress.com.mylibrary.base.loadingdialog.manager.StyleManager;
 
 
 /**
- * Created by Luo on 2016/9/23.
+ *
  * desc:加载等待的Dialog
  */
 public class LoadingDialog implements FinishDrawListener {

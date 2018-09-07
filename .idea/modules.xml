@@ -2,10 +2,12 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/OpenfireIM/OpenfireIM.iml" filepath="$PROJECT_DIR$/OpenfireIM/OpenfireIM.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/baselibrary/baselibrary.iml" filepath="$PROJECT_DIR$/baselibrary/baselibrary.iml" />
       <module fileurl="file://$PROJECT_DIR$/behaviordemo/behaviordemo.iml" filepath="$PROJECT_DIR$/behaviordemo/behaviordemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/jpush.iml" filepath="$PROJECT_DIR$/jpush.iml" />
+      <module fileurl="file://$PROJECT_DIR$/myapplication/myapplication.iml" filepath="$PROJECT_DIR$/myapplication/myapplication.iml" />
       <module fileurl="file://$PROJECT_DIR$/mylibrary/mylibrary.iml" filepath="$PROJECT_DIR$/mylibrary/mylibrary.iml" />
       <module fileurl="file://$PROJECT_DIR$/packageandroid/packageandroid.iml" filepath="$PROJECT_DIR$/packageandroid/packageandroid.iml" />
     </modules>

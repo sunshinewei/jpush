@@ -1,1 +1,1 @@
-include ':app', ':baselibrary', ':mylibrary', ':behaviordemo', ':packageandroid'
+include ':app', ':baselibrary', ':mylibrary', ':behaviordemo', ':packageandroid', ':myapplication', ':OpenfireIM'

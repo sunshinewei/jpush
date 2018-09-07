@@ -4,11 +4,12 @@ package izijia.ccpress.com.mylibrary.base.loadingdialog.manager;
 import izijia.ccpress.com.mylibrary.base.loadingdialog.view.LoadingDialog;
 
 /**
- * Created by Luo_xiasuhuei321@163.com on 2016/11/12.
+ *
  * desc:用于设置全局的loading样式
  */
 
-public class StyleManager {
+public class
+StyleManager {
     public StyleManager() {
     }
 

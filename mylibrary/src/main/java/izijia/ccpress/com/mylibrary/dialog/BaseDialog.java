@@ -1,7 +1,11 @@
 package izijia.ccpress.com.mylibrary.dialog;
 
 
+import android.app.Dialog;
+import android.app.FragmentManager;
+import android.content.Context;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
 import android.support.v4.app.DialogFragment;
@@ -41,5 +45,7 @@ public abstract class BaseDialog extends DialogFragment {
      * 初始化布局控件
      */
     protected abstract void initView(ViewGroup mRootView);
-
 }
+
+
+

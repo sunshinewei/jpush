@@ -1,5 +1,6 @@
 package izijia.ccpress.com.mylibrary.dialog;
 
+import android.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
@@ -133,5 +134,16 @@ public class BaseCenterMsgDialog extends BaseDialog {
         return this;
     }
 
+    /**
+     * @param manager
+     */
+    protected BaseCenterMsgDialog showDialog(android.support.v4.app.FragmentManager manager){
+        show(manager,"ss");
+        return this;
+    }
 
+    @Override
+    public void showNow(android.support.v4.app.FragmentManager manager, String tag) {
+        super.showNow(manager, tag);
+    }
 }

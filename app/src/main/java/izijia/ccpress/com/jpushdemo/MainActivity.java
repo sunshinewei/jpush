@@ -23,9 +23,19 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
+import com.google.gson.FieldNamingStrategy;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+
+import java.io.IOException;
+import java.io.StringReader;
 import java.security.acl.Permission;
 import java.util.List;
 
+import izijia.ccpress.com.jpushdemo.bean.ExampleBean;
 import izijia.ccpress.com.jpushdemo.test.Test2Activity;
 import izijia.ccpress.com.jpushdemo.test.Test3Activity;
 import izijia.ccpress.com.jpushdemo.test.TestActivity;
@@ -55,6 +65,33 @@ public class MainActivity extends Activity implements View.OnClickListener, Easy
         initWebView();
         webView.loadUrl("file:///android_asset/test.html"); //加载assets文件中的H5页面
 //        webView.loadUrl("http://dev.m.baobaot.com/common/article_detail?cid=6");
+
+
+
+
+        Gson gson = new GsonBuilder()
+                .registerTypeAdapter(ExampleBean.class, new TypeAdapter<ExampleBean>() {
+                    @Override
+                    public void write(JsonWriter out, ExampleBean value) throws IOException {
+                        out.value("aaaa");
+                    }
+
+                    @Override
+                    public ExampleBean read(JsonReader in) throws IOException {
+
+                        ExampleBean exampleBean = new ExampleBean(true, "aaaaa", "aaa");
+
+                        return exampleBean;
+                    }
+                })
+                .create();
+
+        FieldNamingStrategy fieldNamingStrategy = gson.fieldNamingStrategy();
+//        fieldNamingStrategy.translateName(f)
+
+        System.out.println("gson转化"+gson);
+
+
     }
 
 
@@ -64,9 +101,9 @@ public class MainActivity extends Activity implements View.OnClickListener, Easy
     @SuppressLint("JavascriptInterface")  //添加该字段
     private void initWebView() {
         WebSettings settings = webView.getSettings();
-        settings.setJavaScriptEnabled(true) ;  //设置运行使用JS
+        settings.setJavaScriptEnabled(true);  //设置运行使用JS
         ButtonClick click = new ButtonClick();
-        JsPurchase jsPurchase=new JsPurchase();
+        JsPurchase jsPurchase = new JsPurchase();
         //这里添加JS的交互事件，这样H5就可以调用原生的代码
         webView.addJavascriptInterface(jsPurchase, "BBT_APP");
 
@@ -77,7 +114,7 @@ public class MainActivity extends Activity implements View.OnClickListener, Easy
         switch (v.getId()) {
             case R.id.red:  //调用JS中的无参数方法
 //                webView.loadUrl("javascript:setRed()");
-                startActivity(new Intent(this, Test2Activity.class));
+//                startActivity(new Intent(this, Test2Activity.class));
 //                View inflate = LayoutInflater.from(this).inflate(izijia.ccpress.com.mylibrary.R.layout.toast_view, null);
 //                Snackbar.make(webView, "sdfsdf", Snackbar.LENGTH_LONG)
 //                        .setAction("确定", new View.OnClickListener() {
@@ -87,6 +124,9 @@ public class MainActivity extends Activity implements View.OnClickListener, Easy
 //                            }
 //                        })
 //                        .show();
+
+                startActivity(new Intent(this,TeastActivity.class));
+
                 break;
             case R.id.color://调用JS中的有参数方法
 //                webView.loadUrl("javascript:setColor('#00f','代码的触发事件')");
@@ -149,16 +189,16 @@ public class MainActivity extends Activity implements View.OnClickListener, Easy
     }
 
 
-    public class JsPurchase{
+    public class JsPurchase {
         //Map<String,String> map=new HashMap<>();
 
         @JavascriptInterface
-        public void goPurchase(String jsPurchaseList){
+        public void goPurchase(String jsPurchaseList) {
 
 //            Intent intent=new Intent(WebActivity.this, PurchaseActivity.class);
 //            startActivity(intent);
 
-            Log.e("aaa",jsPurchaseList);
+            Log.e("aaa", jsPurchaseList);
         }
     }
 

@@ -41,13 +41,19 @@ android {
     configurations {
         all*.exclude group: 'com.android.support', module: 'support-v4'
     }
+
+    repositories {
+        maven { url "https://jitpack.io" }
+        google()
+        mavenCentral()
+    }
 }
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
-//    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
-//        exclude group: 'com.android.support', module: 'support-annotations'
-//    })
+    //    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+    //        exclude group: 'com.android.support', module: 'support-annotations'
+    //    })
     compile 'cn.jiguang.sdk:jpush:3.0.9'
     // 此处以JPush 3.0.9 版本为例。
     compile 'cn.jiguang.sdk:jcore:1.1.7'
@@ -60,12 +66,15 @@ dependencies {
     compile project(':mylibrary')
     //https://github.com/airbnb/lottie-android
     compile 'com.airbnb.android:lottie:2.5.0-beta1'
-
     compile 'com.squareup.picasso:picasso:2.5.1'
 
-//    compile 'com.android.support:design:26.0.0-alpha1'{
-//        exclude module: 'android.support.design.widget'
-//    }
-//        exclude module: 'support.design.widget.CoordinatorLayout;'
-//    }
+    //okgo网络请求
+    //    compile 'com.lzy.net:okgo:2.1.4'
+    //工具类
+    compile 'com.blankj:utilcode:1.9.0'
+    compile 'com.github.LuckSiege.PictureSelector:picture_library:v2.2.3'
+
+    //图片v
+    //    compile 'com.android.support.test.espresso:espresso-core:3.0.2'
+//    compile 'com.github.LuckSiege.PictureSelector:picture_library:v2.2.3'
 }

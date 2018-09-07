@@ -21,4 +21,5 @@ class TwoActivity : BaseLoadActivity() {
 
     override fun initData() {
     }
+
 }
