@@ -34,12 +34,10 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
     //Smark
-    compile 'org.igniterealtime.smack:smack-java7:4.3.0'
-    // Optional for XMPPTCPConnection
-    compile 'org.igniterealtime.smack:smack-tcp:4.3.0'
-    // Optional for XMPP-IM (RFC 6121) support (Roster, Threaded Chats, …)
-    compile 'org.igniterealtime.smack:smack-im:4.3.0'
-    // Optional for XMPP extensions support
-    compile 'org.igniterealtime.smack:smack-extensions:4.3.0'
+    compile "org.igniterealtime.smack:smack-android-extensions:4.2.0"
+    compile "org.igniterealtime.smack:smack-tcp:4.2.0"
+    compile "org.igniterealtime.smack:smack-android:4.2.0"
+    compile "org.igniterealtime.smack:smack-android-extensions:4.2.0"
+    compile "org.igniterealtime.smack:smack-experimental:4.2.0"
     compile project(':mylibrary')
 }
