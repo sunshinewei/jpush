@@ -193,9 +193,15 @@ public class BaseBottomDialog extends BaseDialog {
 
         private ClickListener mClickListener;
 
+        /**
+         * 适配器模式，加载不同的布局
+         *
+         * @param parent
+         * @param viewType
+         * @return
+         */
         @Override
         public DialogViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-
             View inflate = LayoutInflater.from(getActivity()).inflate(R.layout.adapter_dialog_view, parent, false);
 
             inflate.setOnClickListener(this);

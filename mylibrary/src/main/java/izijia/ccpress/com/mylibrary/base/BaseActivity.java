@@ -28,6 +28,7 @@ import com.google.gson.Gson;
 
 import izijia.ccpress.com.mylibrary.R;
 import izijia.ccpress.com.mylibrary.base.loadingdialog.view.LoadingDialog;
+import izijia.ccpress.com.mylibrary.toast.ToastUtil;
 import izijia.ccpress.com.mylibrary.utils.StatusBarUtils;
 import izijia.ccpress.com.mylibrary.utils.SystemStatusManager;
 
@@ -36,7 +37,7 @@ import izijia.ccpress.com.mylibrary.utils.SystemStatusManager;
  * Created by Admin on 2017/11/22.
  */
 
-public abstract class BaseActivity extends AppCompatActivity implements IBaseView {
+public abstract class BaseActivity extends AppCompatActivity implements IBaseView{
 
     protected RelativeLayout mRootInflate;//根布局
 
@@ -50,7 +51,7 @@ public abstract class BaseActivity extends AppCompatActivity implements IBaseVie
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        getWindow().requestFeature(Window.FEATURE_CONTENT_TRANSITIONS);
+        getWindow().requestFeature(Window.FEATURE_NO_TITLE);
 
         mContext = this;
         mRootView = (RelativeLayout) LayoutInflater.from(this).inflate(R.layout.base_activity_view, null);
@@ -64,9 +65,9 @@ public abstract class BaseActivity extends AppCompatActivity implements IBaseVie
         mRootInflate.addView(getLayoutInfater());
 
         setContentView(mRootView);
-//        if (getSupportActionBar() != null) {
-//            getSupportActionBar().hide();
-//        }
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().hide();
+        }
         /**
          * 设置不用在每一个页面都添加android:fitsSystemWindows="true"
          */
@@ -79,7 +80,7 @@ public abstract class BaseActivity extends AppCompatActivity implements IBaseVie
          * 状态栏
          */
         new SystemStatusManager(this)
-                .setTranslucentStatus(R.color.color_fff);
+                .setTranslucentStatus(R.color.colorAccent);
 
         initView();
         initData();
@@ -123,6 +124,7 @@ public abstract class BaseActivity extends AppCompatActivity implements IBaseVie
 
     public abstract View getLayoutInfater();
 
+
     public abstract int setRootView();
 
     /**
@@ -139,6 +141,8 @@ public abstract class BaseActivity extends AppCompatActivity implements IBaseVie
      */
     public void toastLong(String msg) {
         Toast.makeText(this, msg, Toast.LENGTH_LONG).show();
+
+        ToastUtil.toast(mContext,msg);
     }
 
     @Override

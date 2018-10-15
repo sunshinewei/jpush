@@ -13,6 +13,7 @@ import android.support.v4.widget.SwipeRefreshLayout;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ShareActionProvider;
 
 import izijia.ccpress.com.jpushdemo.R;
@@ -71,4 +72,6 @@ public class BehaviorActivity extends BaseCommonActivity {
             mShareActionProvider.setShareIntent(shareIntent);
         }
     }
+
+
 }

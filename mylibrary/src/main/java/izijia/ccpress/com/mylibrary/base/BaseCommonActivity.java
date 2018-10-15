@@ -8,6 +8,8 @@ import android.view.View;
 
 /**
  * Created by Admin on 2017/11/23.
+ *
+ *
  */
 
 public abstract class BaseCommonActivity extends BaseActivity {

@@ -4,7 +4,7 @@ package com.example.packageandroid;
 
 import izijia.ccpress.com.mylibrary.base.BaseCommonActivity;
 
-public class MainActivity extends BaseCommonActivity {
+public abstract class MainActivity extends BaseCommonActivity {
 
     @Override
     public int setRootView() {

@@ -1,6 +1,7 @@
 package izijia.ccpress.com.mylibrary.base;
 
 import android.content.Context;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;

@@ -4,14 +4,9 @@ import org.jivesoftware.smack.AbstractXMPPConnection;
 import org.jivesoftware.smack.ConnectionConfiguration;
 import org.jivesoftware.smack.SmackException;
 import org.jivesoftware.smack.XMPPException;
-import org.jivesoftware.smack.chat2.Chat;
-import org.jivesoftware.smack.chat2.ChatManager;
-import org.jivesoftware.smack.chat2.IncomingChatMessageListener;
-import org.jivesoftware.smack.packet.Message;
+
 import org.jivesoftware.smack.tcp.XMPPTCPConnection;
 import org.jivesoftware.smack.tcp.XMPPTCPConnectionConfiguration;
-import org.jxmpp.jid.EntityBareJid;
-import org.jxmpp.jid.impl.JidCreate;
 import org.jxmpp.stringprep.XmppStringprepException;
 
 import java.io.IOException;
@@ -22,9 +17,17 @@ import java.io.IOException;
 
 public class ConntionUtils {
 
-    public static synchronized void getInstance(String useNmae,String password) {
+    private static AbstractXMPPConnection connection = null;
+
+    /**
+     * Smark连接
+     *
+     * @param useNmae
+     * @param password
+     * @return
+     */
+    public static synchronized AbstractXMPPConnection getInstance(String useNmae, String password) {
         //初始化XMPPTCPConnection相关配置
-        AbstractXMPPConnection connection = null;
         String server = "192.168.50.89";
         if (connection == null) {
             XMPPTCPConnectionConfiguration.Builder builder = XMPPTCPConnectionConfiguration.builder();
@@ -50,13 +53,11 @@ public class ConntionUtils {
             //设置端口号
             builder.setPort(5222);
             //是否查看debug日志
-            builder.setDebuggerEnabled(true);
+            builder.setDebuggerEnabled(false);
             connection = new XMPPTCPConnection(builder.build());
             try {
                 connection.connect();
                 connection.login();
-
-                System.out.println("连接成功");
             } catch (SmackException e) {
                 e.printStackTrace();
             } catch (IOException e) {
@@ -67,6 +68,7 @@ public class ConntionUtils {
                 e.printStackTrace();
             }
         }
+        return connection;
     }
 
 }
