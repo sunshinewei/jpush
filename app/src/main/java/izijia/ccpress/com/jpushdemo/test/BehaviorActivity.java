@@ -49,6 +49,11 @@ public class BehaviorActivity extends BaseCommonActivity {
         Log.e("actvity的生命周期", lifecycle.getCurrentState() + "");
     }
 
+    @Override
+    public void initData() {
+
+    }
+
     private ShareActionProvider mShareActionProvider;
 
     @Override

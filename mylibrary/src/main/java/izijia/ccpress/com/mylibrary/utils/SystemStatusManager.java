@@ -32,8 +32,7 @@ public class SystemStatusManager {
             this.mContext.getWindow().addFlags(
                     WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
             // 透明导航栏
-            this.mContext.getWindow().addFlags(
-                    WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
+            this.mContext.getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
             SystemStatusManager tintManager = new SystemStatusManager(this.mContext);
             tintManager.setStatusBarTintEnabled(true);
             // 设置状态栏的颜色

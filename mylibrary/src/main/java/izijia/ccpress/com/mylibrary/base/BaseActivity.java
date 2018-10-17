@@ -37,7 +37,7 @@ import izijia.ccpress.com.mylibrary.utils.SystemStatusManager;
  * Created by Admin on 2017/11/22.
  */
 
-public abstract class BaseActivity extends AppCompatActivity implements IBaseView{
+public abstract class BaseActivity extends AppCompatActivity implements IBaseView {
 
     protected RelativeLayout mRootInflate;//根布局
 
@@ -80,11 +80,11 @@ public abstract class BaseActivity extends AppCompatActivity implements IBaseVie
          * 状态栏
          */
         new SystemStatusManager(this)
-                .setTranslucentStatus(R.color.colorAccent);
-
+                .setTranslucentStatus(R.color.color_fff);
+        initToolBar(inflate);
         initView();
         initData();
-        initToolBar(inflate);
+
     }
 
     /**
@@ -114,11 +114,7 @@ public abstract class BaseActivity extends AppCompatActivity implements IBaseVie
     }
 
     public void addToolBarRight() {
-        TextView textView = new TextView(this);
 
-        textView.setText("确定");
-
-        lnRight.addView(textView);
     }
 
 
@@ -142,7 +138,7 @@ public abstract class BaseActivity extends AppCompatActivity implements IBaseVie
     public void toastLong(String msg) {
         Toast.makeText(this, msg, Toast.LENGTH_LONG).show();
 
-        ToastUtil.toast(mContext,msg);
+        ToastUtil.toast(mContext, msg);
     }
 
     @Override

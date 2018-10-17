@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="#f0a"
+    android:background="#fff"
     android:orientation="vertical">
 
     <TextView
@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:padding="10dp"
         android:text="返回"
-        android:textColor="#fff"
+        android:textColor="#333"
         android:textSize="16sp"
         android:background="?android:selectableItemBackground"/>
 
@@ -22,7 +22,7 @@
         android:layout_centerHorizontal="true"
         android:padding="10dp"
         android:text="标题"
-        android:textColor="#fff"
+        android:textColor="#333"
         android:textSize="16sp" />
 
     <LinearLayout

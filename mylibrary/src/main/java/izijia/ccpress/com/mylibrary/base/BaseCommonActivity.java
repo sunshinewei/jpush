@@ -22,13 +22,4 @@ public abstract class BaseCommonActivity extends BaseActivity {
         return inflate;
     }
 
-    @Override
-    public void initView() {
-
-    }
-
-    @Override
-    public void initData() {
-
-    }
 }

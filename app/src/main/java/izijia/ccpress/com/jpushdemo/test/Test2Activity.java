@@ -88,7 +88,6 @@ public class Test2Activity extends BaseCommonActivity implements TestDemoView {
 
     @Override
     public void initData() {
-        super.initData();
 //        mTestPresenter = new Test2Presenter(this);
 //        mTestPresenter.getData();
     }

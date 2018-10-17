@@ -13,6 +13,5 @@ public abstract class MainActivity extends BaseCommonActivity {
 
     @Override
     public void initData() {
-        super.initData();
     }
 }
