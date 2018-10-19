@@ -8,30 +8,39 @@
     android:orientation="vertical"
     android:padding="20dp">
 
-    <izijia.ccpress.com.mylibrary.base.loadingdialog.view.LVCircularRing
-        android:id="@+id/lv_circularring"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:visibility="gone" />
 
-    <izijia.ccpress.com.mylibrary.base.loadingdialog.view.RightDiaView
-        android:id="@+id/rdv_right"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:visibility="gone" />
+    <LinearLayout
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:gravity="center"
+        android:orientation="vertical">
 
-    <izijia.ccpress.com.mylibrary.base.loadingdialog.view.WrongDiaView
-        android:id="@+id/wv_wrong"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:visibility="gone" />
+        <izijia.ccpress.com.mylibrary.base.loadingdialog.view.LVCircularRing
+            android:id="@+id/lv_circularring"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:visibility="gone" />
 
-    <TextView
-        android:id="@+id/loading_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:textColor="#ffffff"
-        android:textSize="15sp" />
+        <izijia.ccpress.com.mylibrary.base.loadingdialog.view.RightDiaView
+            android:id="@+id/rdv_right"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:visibility="gone" />
+
+        <izijia.ccpress.com.mylibrary.base.loadingdialog.view.WrongDiaView
+            android:id="@+id/wv_wrong"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/loading_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:text="ddddd"
+            android:textColor="#ffffff"
+            android:textSize="14sp" />
+    </LinearLayout>
 
 </LinearLayout>

@@ -32,13 +32,14 @@ public class ProInfoActivity extends BaseCommonActivity {
     @Override
     public void initView() {
         super.initView();
-        setTitle("项目详情");
+
         imgShow = (ImageView) findViewById(R.id.img_show);
         tvName = (TextView) findViewById(R.id.tv_name);
         tvMinPrice = (TextView) findViewById(R.id.tv_minPrice);
         tvOriginPrice = (TextView) findViewById(R.id.tv_originPrice);
         tvInfo = (TextView) findViewById(R.id.tv_info);
         tvTel = (TextView) findViewById(R.id.tv_tel);
+        tvTitle.setText("项目详情");
     }
 
     private HomeBean intent_HomeBean;
@@ -50,8 +51,8 @@ public class ProInfoActivity extends BaseCommonActivity {
             imgShow.setImageDrawable(PicUtils.initPic(mContext, intent_HomeBean.getId()));
             tvName.setText(intent_HomeBean.getName());
             tvInfo.setText(intent_HomeBean.getCharacteristic());
-            tvMinPrice.setText(intent_HomeBean.getMinPrice()+"");
-            tvOriginPrice.setText(intent_HomeBean.getOriginalPrice()+"");
+            tvMinPrice.setText("协议价"+intent_HomeBean.getMinPrice()+"元/瓶");
+            tvOriginPrice.setText("零售价"+intent_HomeBean.getOriginalPrice()+"元/瓶");
 
         }
     }

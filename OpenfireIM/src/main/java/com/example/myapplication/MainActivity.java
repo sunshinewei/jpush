@@ -24,6 +24,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import izijia.ccpress.com.mylibrary.base.BaseCommonActivity;
+import izijia.ccpress.com.mylibrary.base.loadingdialog.view.LoadingDialog;
 
 public class MainActivity extends BaseCommonActivity {
     private RecyclerView recy;
@@ -38,6 +39,8 @@ public class MainActivity extends BaseCommonActivity {
     @Override
     public void initView() {
         recy = (RecyclerView) findViewById(R.id.recy);
+        tvTitle.setText("首页");
+        tvBack.setVisibility(View.GONE);
     }
 
 
@@ -57,6 +60,7 @@ public class MainActivity extends BaseCommonActivity {
         recy.addItemDecoration(new DividerItemDecoration(mContext, LinearLayout.VERTICAL));
         recy.addItemDecoration(new DividerItemDecoration(mContext, LinearLayout.HORIZONTAL));
         recy.setAdapter(new ShowAdapter(mainBean));
+
     }
 
 
@@ -76,7 +80,7 @@ public class MainActivity extends BaseCommonActivity {
         @Override
         public void onBindViewHolder(final SViewHolder holder, int position) {
             final HomeBean homeBean = homeBeans.get(position);
-            holder.tvPrice.setText(homeBean.getMinPrice() + "");
+            holder.tvPrice.setText("协议价 ¥"+homeBean.getMinPrice() + "");
             holder.tvTitle.setText(homeBean.getName());
             holder.imgAdaShow.setImageDrawable(PicUtils.initPic(mContext, homeBean.getId()));
             holder.itemView.setOnClickListener(new View.OnClickListener() {
