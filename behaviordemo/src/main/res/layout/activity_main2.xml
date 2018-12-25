@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.behaviordemo.Main2Activity"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context="com.example.behaviordemo.Main2Activity">
 
 
     <TextView
@@ -13,12 +13,18 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:gravity="center"
-        android:text="aaaa"/>
+        android:text="aaaa" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Button" />
+
     <TextView
         android:id="@+id/tv_tex1"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"
-        android:text="aaaa"/>
+        android:text="aaaa" />
 
 </LinearLayout>

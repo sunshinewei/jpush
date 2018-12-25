@@ -1,5 +1,6 @@
 package izijia.ccpress.com.jpushdemo.bean;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -7,7 +8,10 @@ import java.util.List;
  * Created by mm on 2018/4/12.
  */
 
-public class ProDetailBean {
+public class ProDetailBean  implements Serializable{
+
+
+
 
     private String name;
 

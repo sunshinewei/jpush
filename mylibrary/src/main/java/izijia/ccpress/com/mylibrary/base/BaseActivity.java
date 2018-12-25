@@ -54,6 +54,11 @@ public abstract class BaseActivity extends AppCompatActivity implements IBaseVie
         getWindow().requestFeature(Window.FEATURE_NO_TITLE);
 
         mContext = this;
+
+
+
+
+
         mRootView = (RelativeLayout) LayoutInflater.from(this).inflate(R.layout.base_activity_view, null);
 
         mRootInflate = (RelativeLayout) mRootView.findViewById(R.id.root_view);
@@ -136,8 +141,6 @@ public abstract class BaseActivity extends AppCompatActivity implements IBaseVie
      * 吐司
      */
     public void toastLong(String msg) {
-        Toast.makeText(this, msg, Toast.LENGTH_LONG).show();
-
         ToastUtil.toast(mContext, msg);
     }
 
@@ -174,6 +177,7 @@ public abstract class BaseActivity extends AppCompatActivity implements IBaseVie
 //        if (mLoadingDialog != null) {
 //            mLoadingDialog.loadSuccess();
 //        }
+
     }
 
 

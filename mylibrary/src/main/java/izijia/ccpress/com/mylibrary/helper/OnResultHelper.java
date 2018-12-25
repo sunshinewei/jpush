@@ -1,6 +1,7 @@
 package izijia.ccpress.com.mylibrary.helper;
 
 import android.app.Activity;
+import android.arch.lifecycle.LifecycleObserver;
 import android.content.Intent;
 
 /**
@@ -60,6 +61,8 @@ public class OnResultHelper {
         }
         return this;
     }
+
+
 
 
     public interface OnResultCallBack {

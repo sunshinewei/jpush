@@ -1,6 +1,9 @@
 package izijia.ccpress.com.mylibrary.gospace;
 
+import android.app.Application;
+import android.content.Intent;
 import android.util.Log;
+import android.util.SparseArray;
 
 import com.google.gson.Gson;
 import com.lzy.okgo.OkGo;
@@ -8,6 +11,7 @@ import com.lzy.okgo.callback.StringCallback;
 import com.lzy.okgo.model.Response;
 import com.lzy.okgo.request.base.Request;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 import izijia.ccpress.com.mylibrary.base.IBaseView;
@@ -97,19 +101,19 @@ public class BaseGoSpace<T> {
      * @return
      */
     public BaseGoSpace setParam(String... param) {
-        if (param.length % 2 == 0) {
-            for (int i = 0; i < param.length; i = i + 2) {
-                mHashParams.put(param[i], param[i + 1]);
+        if (param != null && param.length > 0) {
+            if (param.length % 2 == 0) {
+                for (int i = 0; i < param.length; i = i + 2) {
+                    mHashParams.put(param[i], param[i + 1]);
+                }
             }
         }
         return this;
     }
-
     public BaseGoSpace setCache(boolean cache) {
         isCache = cache;
         return this;
     }
-
     /**
      * 设置缓存
      *
@@ -123,11 +127,10 @@ public class BaseGoSpace<T> {
 
     /**
      * get请求
+     * <p>
+     * 如果要详细解析code,response.code(),比如未登录状态，在IBaseView添加方法。
      */
     public void goGetSpace() {
-        if (isCache) {
-            mOnNoIntentListener.LoadCache();
-        }
 //        if (!NetWorkStatus.isNetworkConnected(MyLibApplication.mContext)) {
 //            if (!isLoad) {
 //                mBaseView.failLoad();
@@ -156,7 +159,7 @@ public class BaseGoSpace<T> {
                     @Override
                     public void onError(Response<String> response) {
                         super.onError(response);
-                        Log.e("网络请求", "网络请求失败!");
+                        //在app中设置，如果返回404，405，等处理，在IBaseView中设置。
                         if (!isLoad) {
                             mBaseView.failLoad();
                         } else {
@@ -192,28 +195,23 @@ public class BaseGoSpace<T> {
 
                     @Override
                     public void onSuccess(Response<String> response) {
-
-                        Log.e("请求成功", response.body());
-
                         mResponseJson.jsonData(response.body());
-
                         goAnalysisData(response.body());
                     }
 
                     @Override
                     public void onError(Response<String> response) {
                         super.onError(response);
-                        Log.e("网络请求", "网络请求失败!");
                         if (!isLoad) {
                             mBaseView.failLoad();
                         } else {
                             mBaseView.LoadingFailDialog("请求异常!");
                         }
                     }
+
                     @Override
                     public void onFinish() {
                         super.onFinish();
-                        Log.e("失败", "请求失败");
                         if (isLoad) {
                             mBaseView.loadfinishView();
                         }
@@ -240,7 +238,6 @@ public class BaseGoSpace<T> {
             T data = (T) gson.fromJson(datas, dataType);
             mOnSuccessListener.setSuccessInfo(data);
         } catch (Exception e) {
-            Log.e("数据解析", "数据解析失败!");
             if (!isLoad) {
                 mBaseView.failLoad();
             } else {

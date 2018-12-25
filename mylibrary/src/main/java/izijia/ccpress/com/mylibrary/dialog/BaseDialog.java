@@ -12,6 +12,7 @@ import android.support.v4.app.DialogFragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 
 
 import izijia.ccpress.com.mylibrary.R;
@@ -26,6 +27,7 @@ public abstract class BaseDialog extends DialogFragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
+        getDialog().requestWindowFeature(Window.FEATURE_NO_TITLE);
         mRootView = (ViewGroup) inflater.inflate(R.layout.base_dialog_view, container);
         View inflate = LayoutInflater.from(getActivity()).inflate(getResId(), null);
         mRootView.removeAllViews();

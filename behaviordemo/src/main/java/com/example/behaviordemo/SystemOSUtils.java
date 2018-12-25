@@ -1,6 +1,7 @@
 package com.example.behaviordemo;
 
 import android.Manifest;
+import android.app.Activity;
 import android.bluetooth.BluetoothAdapter;
 import android.content.Context;
 import android.content.pm.PackageManager;
@@ -8,6 +9,7 @@ import android.net.wifi.WifiManager;
 import android.os.Build;
 import android.provider.Settings;
 import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.pm.ActivityInfoCompat;
 import android.telephony.TelephonyManager;
 
 import java.io.File;
@@ -32,6 +34,17 @@ public class SystemOSUtils {
 
     public synchronized static String getid(Context context) {
         TelephonyManager TelephonyMgr = (TelephonyManager) context.getSystemService(TELEPHONY_SERVICE);
+        if (ActivityCompat.checkSelfPermission(context, Manifest.permission.READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED) {
+            // TODO: Consider calling
+            //    ActivityCompat#requestPermissions
+            // here to request the missing permissions, and then overriding
+            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+            //                                          int[] grantResults)
+            // to handle the case where the user grants the permission. See the documentation
+            // for ActivityCompat#requestPermissions for more details.
+            ActivityCompat.requestPermissions((Activity) context, new String[]{Manifest.permission.READ_PHONE_STATE},1000);
+
+        }
         String ID = TelephonyMgr.getDeviceId();
         return ID;
     }
@@ -56,10 +69,11 @@ public class SystemOSUtils {
         String mBluethId = mBlueth.getAddress();
         return mBluethId;
     }
+
     /**
      * 获取手机厂商
      *
-     * @return  手机厂商
+     * @return 手机厂商
      */
     public static String getDeviceBrand() {
         return android.os.Build.BRAND;
@@ -68,7 +82,7 @@ public class SystemOSUtils {
     /**
      * 获取当前手机系统版本号
      *
-     * @return  系统版本号
+     * @return 系统版本号
      */
     public static String getSystemVersion() {
         return android.os.Build.VERSION.RELEASE;
@@ -77,7 +91,7 @@ public class SystemOSUtils {
     /**
      * 获取手机型号
      *
-     * @return  手机型号
+     * @return 手机型号
      */
     public static String getSystemModel() {
         return android.os.Build.MODEL;
@@ -92,10 +106,20 @@ public class SystemOSUtils {
 
     public static String getDeviceUniqueID(Context context) {
         String szImei = null;
-        String m_szWLANMAC =null;
+        String m_szWLANMAC = null;
         TelephonyManager TelephonyMgr = (TelephonyManager) context.getSystemService(TELEPHONY_SERVICE);
         try {
-            szImei= TelephonyMgr.getDeviceId();
+            if (ActivityCompat.checkSelfPermission(context, Manifest.permission.READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED) {
+                // TODO: Consider calling
+                //    ActivityCompat#requestPermissions
+                // here to request the missing permissions, and then overriding
+                //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+                //                                          int[] grantResults)
+                // to handle the case where the user grants the permission. See the documentation
+                // for ActivityCompat#requestPermissions for more details.
+
+            }
+            szImei = TelephonyMgr.getDeviceId();
         }catch (Exception e){
 
         }
@@ -177,6 +201,7 @@ class Installation {
         byte[] bytes = new byte[(int) f.length()];
         f.readFully(bytes);
         f.close();
+
         return new String(bytes);
     }
 

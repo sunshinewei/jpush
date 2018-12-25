@@ -197,6 +197,7 @@ public class WrongDiaView extends View {
         }
     }
 
+
     /**
      * 动态画出还是直接画出
      */
@@ -209,7 +210,7 @@ public class WrongDiaView extends View {
      */
     protected void setSpeed(int speed) {
         if (speed <= 0 && speed >= 3) {
-            throw new IllegalArgumentException("how can u set this speed??  " + speed + "  do not " +
+            throw new IllegalArgumentException(" how can u set this speed??  " + speed + "  do not " +
                     "use reflect to use this method!u can see the LoadingDialog class for how to" +
                     "set the speed");
         } else {

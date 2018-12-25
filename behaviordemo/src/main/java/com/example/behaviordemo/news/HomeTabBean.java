@@ -1,20 +1,58 @@
 package com.example.behaviordemo.news;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import java.util.List;
 
 /**
  * Created by Admin on 2017/12/19.
  */
 
-public class HomeTabBean {
+public class HomeTabBean  implements Parcelable{
+
+    protected HomeTabBean(Parcel in) {
+    }
+
+    public static final Creator<HomeTabBean> CREATOR = new Creator<HomeTabBean>() {
+        @Override
+        public HomeTabBean createFromParcel(Parcel in) {
+
+            return new HomeTabBean(in);
+        }
+
+        @Override
+        public HomeTabBean[] newArray(int size) {
+            return new HomeTabBean[size];
+        }
+    };
+
+    @Override
+    public int describeContents() {
 
 
-//        public boolean has_more;
-//        public String tip;
-//        public boolean has_new_message;
-//        public int max_time;
-//        public int min_time;
-//        public List<DataBean> data;
+
+
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+
+        dest.writeInt(max_time);
+
+    }
+
+
+
+
+
+        public boolean has_more;
+        public String tip;
+        public boolean has_new_message;
+        public int max_time;
+        public int min_time;
+        public List<DataBean> data;
 
         public static class DataBean {
 

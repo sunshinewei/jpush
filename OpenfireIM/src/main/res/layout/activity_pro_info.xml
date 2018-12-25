@@ -13,6 +13,7 @@
             android:layout_width="match_parent"
             android:layout_height="180dp" />
 
+
         <TextView
             android:id="@+id/tv_name"
             style="@style/text_style_18_9"
@@ -80,8 +81,8 @@
             android:layout_marginLeft="25dp"
             android:layout_marginRight="20dp"
             android:layout_marginTop="5dp"
+            android:text="微信： y18786309286"
             android:textColor="#e64340"
-            android:textSize="18sp"
-            android:text="微信： y18786309286"/>
+            android:textSize="18sp" />
     </LinearLayout>
 </android.support.v4.widget.NestedScrollView>

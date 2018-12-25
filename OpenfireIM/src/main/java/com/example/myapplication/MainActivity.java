@@ -14,6 +14,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.myapplication.Utils.PicUtils;
+import com.example.myapplication.bean.EnumMethod;
 import com.example.myapplication.bean.HomeBean;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -21,6 +22,7 @@ import com.google.gson.reflect.TypeToken;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 
 import izijia.ccpress.com.mylibrary.base.BaseCommonActivity;
@@ -47,10 +49,10 @@ public class MainActivity extends BaseCommonActivity {
     @Override
     public void initData() {
 
-
         Gson gson = new Gson();
 
         Type type = new TypeToken<List<HomeBean>>() {
+
         }.getType();
 
         mainBean = gson.fromJson(source, type);
@@ -80,7 +82,7 @@ public class MainActivity extends BaseCommonActivity {
         @Override
         public void onBindViewHolder(final SViewHolder holder, int position) {
             final HomeBean homeBean = homeBeans.get(position);
-            holder.tvPrice.setText("协议价 ¥"+homeBean.getMinPrice() + "");
+            holder.tvPrice.setText("协议价 ¥" + homeBean.getMinPrice() + "");
             holder.tvTitle.setText(homeBean.getName());
             holder.imgAdaShow.setImageDrawable(PicUtils.initPic(mContext, homeBean.getId()));
             holder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -91,8 +93,14 @@ public class MainActivity extends BaseCommonActivity {
                     startActivity(intent);
                 }
             });
+
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(nums1);
+            arrayList.add(nums2);
         }
 
+        int[] nums1;
+        int[] nums2;
 
 
         @Override
@@ -115,7 +123,6 @@ public class MainActivity extends BaseCommonActivity {
             }
         }
     }
-
 
     String source = "[\n" +
             "  {\n" +

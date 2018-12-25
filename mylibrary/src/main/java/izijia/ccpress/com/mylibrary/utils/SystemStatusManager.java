@@ -117,6 +117,7 @@ public class SystemStatusManager {
             setupNavBarView(activity, decorViewGroup);
         }
 
+
     }
 
     /**

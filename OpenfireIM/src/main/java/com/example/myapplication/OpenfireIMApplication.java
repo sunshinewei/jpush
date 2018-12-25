@@ -13,5 +13,7 @@ public class OpenfireIMApplication extends MyLibApplication{
     @Override
     public void onCreate() {
         super.onCreate();
+
+
     }
 }

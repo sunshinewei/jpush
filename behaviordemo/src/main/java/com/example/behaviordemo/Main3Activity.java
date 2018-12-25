@@ -13,7 +13,7 @@ import com.example.behaviordemo.livedata.NameViewModel;
 
 import java.util.List;
 
-public class Main3Activity extends AppCompatActivity {
+public class Main3Activity extends AppCompatActivity  {
 
     NameViewModel nameViewModel;
 
